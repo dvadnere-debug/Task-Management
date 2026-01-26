@@ -1,11 +1,14 @@
 import "./App.css";
-import Form from "./components/Form.jsx";
-import TaskBoard from "./components/TaskBoard.jsx";
+
+import { RouterProvider } from "react-router-dom";
+import appRouter from "./routes/appRouter.jsx";
+
 function App() {
   return (
     <>
-      <Form />
-      <TaskBoard />
+      <RouterProvider router={appRouter} />
+      {/* <Form /> */}
+      {/* <TaskBoard /> */}
     </>
   );
 }
