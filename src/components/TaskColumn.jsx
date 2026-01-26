@@ -1,0 +1,32 @@
+import TaskCard from "./TaskCard";
+
+function TaskColumn({ title, tasks, onAddClick }) {
+  return (
+    <div
+      style={{
+        width: "300px",
+        border: "1px solid #ccc",
+        padding: "12px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "12px",
+        minHeight: "200px",
+      }}
+    >
+      <h3>{title}</h3>
+
+      {tasks.length === 0 && <p>No tasks</p>}
+
+      <div className="task-list">
+        {tasks.map((task) => (
+          <TaskCard key={task.id} task={task} />
+        ))}
+      </div>
+
+      <br />
+      {onAddClick && <button onClick={onAddClick}>+ Add Task</button>}
+    </div>
+  );
+}
+
+export default TaskColumn;
