@@ -8,7 +8,7 @@ function TaskBoard() {
 
   return (
     <div>
-      <h2>KanBan Board</h2>
+      <header>KanBan Board</header>
 
       {showForm && (
         <AddTaskForm
@@ -24,18 +24,18 @@ function TaskBoard() {
         style={{ display: "flex", gap: "20px", justifyContent: "center" }}
       >
         <TaskColumn
-          title={<h1>To-Do</h1>}
+          title="To-Do"
           tasks={tasks.filter((task) => task.status === "todo")}
           onAddClick={() => setShowForm(true)}
         />
 
         <TaskColumn
-          title={<h1>Pending</h1>}
+          title="Pending"
           tasks={tasks.filter((task) => task.status === "pending")}
         />
 
         <TaskColumn
-          title={<h1>Completed</h1>}
+          title="Completed"
           tasks={tasks.filter((task) => task.status === "completed")}
         />
       </div>

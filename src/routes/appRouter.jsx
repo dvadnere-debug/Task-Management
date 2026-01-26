@@ -9,7 +9,6 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: (
       <>
-        {" "}
         <NavBar />
         <p>Welcome to the Tasks Management App</p>
       </>

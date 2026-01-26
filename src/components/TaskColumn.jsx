@@ -13,7 +13,7 @@ function TaskColumn({ title, tasks, onAddClick }) {
         minHeight: "200px",
       }}
     >
-      <h3>{title}</h3>
+      <h1>{title}</h1>
 
       {tasks.length === 0 && <p>No tasks</p>}
 
