@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TaskColumn from "../../components/TaskColumn";
-import AddTaskForm from "./AddTaskForm";
+import TaskColumn from "./TaskColumn.jsx";
+import AddTaskForm from "./AddTaskForm.jsx";
 
 function TaskBoard() {
   const [tasks, setTasks] = useState([]);
@@ -8,7 +8,7 @@ function TaskBoard() {
 
   return (
     <div>
-      <h2>Task Board</h2>
+      <h2>KanBan Board</h2>
 
       {showForm && (
         <AddTaskForm
@@ -19,20 +19,23 @@ function TaskBoard() {
         />
       )}
 
-      <div style={{ display: "flex", gap: "20px" }}>
+      <div
+        className="board"
+        style={{ display: "flex", gap: "20px", justifyContent: "center" }}
+      >
         <TaskColumn
-          title="To Do"
+          title={<h1>To-Do</h1>}
           tasks={tasks.filter((task) => task.status === "todo")}
           onAddClick={() => setShowForm(true)}
         />
 
         <TaskColumn
-          title="Pending"
+          title={<h1>Pending</h1>}
           tasks={tasks.filter((task) => task.status === "pending")}
         />
 
         <TaskColumn
-          title="Completed"
+          title={<h1>Completed</h1>}
           tasks={tasks.filter((task) => task.status === "completed")}
         />
       </div>
