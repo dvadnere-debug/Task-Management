@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import NavBar from "../components/NavBar.jsx";
 import TaskBoard from "../components/TaskBoard.jsx";
 import Login from "../components/Login.jsx";
+import ProtectedRoute from "./protectedRoute.jsxrotectedRoute";
 
 const appRouter = createBrowserRouter([
   {
@@ -17,19 +18,23 @@ const appRouter = createBrowserRouter([
   {
     path: "/login",
     element: (
-      <>
-        <NavBar />
-        <Login />
-      </>
+      <ProtectedRoute>
+        <>
+          <NavBar />
+          <Login />
+        </>
+      </ProtectedRoute>
     ),
   },
   {
     path: "/dashboard",
     element: (
-      <>
-        <NavBar />
-        <TaskBoard />
-      </>
+      <ProtectedRoute>
+        <>
+          <NavBar />
+          <TaskBoard />
+        </>
+      </ProtectedRoute>
     ),
   },
 ]);
