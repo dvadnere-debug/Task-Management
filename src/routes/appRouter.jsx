@@ -1,9 +1,9 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import NavBar from "../components/NavBar.jsx";
-import TaskBoard from "../components/TaskBoard.jsx";
-import Login from "../components/Login.jsx";
-import ProtectedRoute from "./protectedRoute.jsxrotectedRoute";
+import TaskBoard from "../features/dashboard/TaskBoard.jsx";
+import Login from "../features/Login/Login.jsx";
+import ProtectedRoute from "./protectedRoute.jsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -11,19 +11,19 @@ const appRouter = createBrowserRouter([
     element: (
       <>
         <NavBar />
-        <p>Welcome to the Tasks Management App</p>
+        <p>Home Page</p>
       </>
     ),
   },
   {
     path: "/login",
     element: (
-      <ProtectedRoute>
-        <>
-          <NavBar />
-          <Login />
-        </>
-      </ProtectedRoute>
+      // <ProtectedRoute>
+      <>
+        <NavBar />
+        <Login />
+      </>
+      // </ProtectedRoute>
     ),
   },
   {

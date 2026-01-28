@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TaskCard({ task, onMoveTask }) {
+export default function TaskCard({ task, onMoveTask = () => {} }) {
   return (
     <div className="task-card">
       <h4 className="task-title">{task.title}</h4>

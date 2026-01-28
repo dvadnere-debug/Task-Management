@@ -1,11 +1,11 @@
 import TaskCard from "./TaskCard";
 
-function TaskColumn({ title, tasks, onAddClick, onMoveTask }) {
+function TaskColumn({ title, tasks, onAddClick = () => {}, onMoveTask }) {
   return (
     <div
       style={{
         width: "300px",
-        border: "1px solid #ccc",
+        //border: "1px solid #ccc",
         padding: "12px",
         display: "flex",
         flexDirection: "column",

@@ -1,0 +1,46 @@
+.ReactModal__Overlay {
+  position: fixed; /* Keeps it on top of the screen even when scrolling */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4) !important; /* Semi-transparent black */
+  backdrop-filter: blur(7px); /* This creates the glass blur effect */
+  display: flex;
+  align-items: center; /* Centers modal vertically */
+  justify-content: center; /* Centers modal horizontally */
+  z-index: 9999; /* Higher than everything else on the page */
+}
+
+.modal-popup {
+  background: rgba(0, 0, 0, 0.85); /* Transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Faint white border */
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Won't get too big on laptops */
+  color: white; /* White text looks best on glass */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  outline: none; /* Removes the yellow border when clicking */
+}
+
+.close-button {
+  float: right;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-popup input,
+.modal-popup textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+}
