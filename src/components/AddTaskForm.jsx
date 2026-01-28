@@ -16,7 +16,7 @@ export default function AddTaskForm({ onAddTask }) {
       status: "todo",
     };
 
-    onAddTask(newTask);
+    onAddTask(newTask); //parent child communication, taskBoard passes function as a prop, AddTaskForm calles function (onAddTask) with data, TaskBoard updates state.
   };
 
   return (

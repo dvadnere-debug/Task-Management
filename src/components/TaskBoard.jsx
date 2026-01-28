@@ -6,10 +6,29 @@ function TaskBoard() {
   const [tasks, setTasks] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
+  function moveTask(taskId, newStatus) {
+    const updatedTasks = [];
+
+    for (let i = 0; i < tasks.length; i++) {
+      const task = tasks[i];
+
+      if (task.id === taskId) {
+        updatedTasks.push({
+          ...task,
+          status: newStatus,
+        });
+      } else {
+        updatedTasks.push(task);
+      }
+    }
+
+    setTasks(updatedTasks);
+  }
+
   return (
     <div>
-      <h2>KanBan Board</h2>
-
+      <header>KanBan Board</header>
+      {/* {*if showForm is true, show the AddTaskForm*} */}
       {showForm && (
         <AddTaskForm
           onAddTask={(newTask) => {
@@ -24,19 +43,24 @@ function TaskBoard() {
         style={{ display: "flex", gap: "20px", justifyContent: "center" }}
       >
         <TaskColumn
-          title={<h1>To-Do</h1>}
+          title="To-Do"
           tasks={tasks.filter((task) => task.status === "todo")}
           onAddClick={() => setShowForm(true)}
+          onMoveTask={moveTask}
         />
 
         <TaskColumn
-          title={<h1>Pending</h1>}
-          tasks={tasks.filter((task) => task.status === "pending")}
+          title="In Progress"
+          tasks={tasks.filter((task) => task.status === "in-progress")}
+          onAddClick={() => setShowForm(true)}
+          onMoveTask={moveTask}
         />
 
         <TaskColumn
-          title={<h1>Completed</h1>}
-          tasks={tasks.filter((task) => task.status === "completed")}
+          title="Completed"
+          tasks={tasks.filter((task) => task.status === "done")}
+          onAddClick={() => setShowForm(true)}
+          onMoveTask={moveTask}
         />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import TaskCard from "./TaskCard";
 
-function TaskColumn({ title, tasks, onAddClick }) {
+function TaskColumn({ title, tasks, onAddClick, onMoveTask }) {
   return (
     <div
       style={{
@@ -13,13 +13,13 @@ function TaskColumn({ title, tasks, onAddClick }) {
         minHeight: "200px",
       }}
     >
-      <h3>{title}</h3>
+      <h1>{title}</h1>
 
       {tasks.length === 0 && <p>No tasks</p>}
 
       <div className="task-list">
         {tasks.map((task) => (
-          <TaskCard key={task.id} task={task} />
+          <TaskCard key={task.id} task={task} onMoveTask={onMoveTask} />
         ))}
       </div>
 
