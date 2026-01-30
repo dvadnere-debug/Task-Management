@@ -2,11 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useTheme } from "../../context/ThemeContext.jsx";
+
+// import PswdGen from "./PswdGen.jsx";
 
 export default function Login() {
-  const { theme, toggleTheme } = useTheme();
-
   const navigate = useNavigate();
   const {
     register,
@@ -16,6 +15,14 @@ export default function Login() {
 
   const onSubmit = (data) => {
     console.log("submitting the form", data);
+    // if (data.email && !data.password) {
+    //   alert("please enter details");
+    //   return;
+    // }
+    if (data.email === null) {
+      alert("enter details");
+      return;
+    }
     if (data.email && data.password) {
       localStorage.setItem("token", "temporary_token");
       navigate("/dashboard");
@@ -28,10 +35,8 @@ export default function Login() {
   // }
 
   return (
-    <div className={theme === "dark" ? "dark-mode" : "light-mode"}>
+    <div>
       <div className="login-wrapper">
-        <button onClick={toggleTheme}>Change Theme</button>
-
         <h1>Please Login to continue</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
@@ -55,6 +60,7 @@ export default function Login() {
                 maxLength: 15,
               })}
             />
+            {errors.password && <p>{errors.password.message}</p>}
           </div>
           <br />
           <button type="submit">Login</button>

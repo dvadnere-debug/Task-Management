@@ -11,6 +11,10 @@ export default function AddTaskForm({ onAddTask, onClose, isOpen }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!title || !description || !deadline) {
+      alert("Fill the fields");
+      return;
+    }
     const newTask = {
       id: String(Date.now()),
       title,

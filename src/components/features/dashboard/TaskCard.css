@@ -1,0 +1,53 @@
+.task-card {
+  position: relative;
+  width: 260px;
+  background: #ffffff;
+  border: 2px solid #5b3e31;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 12px;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.task-header h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.task-level {
+  font-size: 12px;
+  color: gray;
+}
+
+.task-desc {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.task-actions button {
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid #111;
+  background: #f3f3f3;
+  cursor: pointer;
+}
+
+.task-deadline {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: gray;
+}

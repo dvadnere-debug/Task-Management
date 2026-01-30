@@ -1,16 +1,17 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import NavBar from "../components/NavBar.jsx";
-import TaskBoard from "../features/dashboard/TaskBoard.jsx";
-import Login from "../features/Login/Login.jsx";
+import { MemoizedComponent } from "../components/NavBar/NavBar.jsx";
+import TaskBoard from "../components/features/dashboard/TaskBoard.jsx";
+import Login from "../components/features/Login/Login.jsx";
 import ProtectedRoute from "./protectedRoute.jsx";
-
+import { Memoizedcomponent } from "../context/counter.jsx";
+// import PswdGen from "../features/Login/PswdGen.jsx";
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: (
       <>
-        <NavBar />
+        <MemoizedComponent />
         <p>Home Page</p>
       </>
     ),
@@ -20,7 +21,7 @@ const appRouter = createBrowserRouter([
     element: (
       // <ProtectedRoute>
       <>
-        <NavBar />
+        <MemoizedComponent />
         <Login />
       </>
       // </ProtectedRoute>
@@ -31,12 +32,20 @@ const appRouter = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <>
-          <NavBar />
+          <MemoizedComponent />
           <TaskBoard />
         </>
       </ProtectedRoute>
     ),
   },
+  {
+    path: "/counter",
+    element: <Memoizedcomponent />,
+  },
+  // {
+  //   path: "/generatePassword",
+  //   element: <PswdGen />,
+  // },
 ]);
 
 export default appRouter;

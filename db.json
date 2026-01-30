@@ -1,32 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "title": "Learn React",
-      "description": "Understand basics",
-      "status": "in-progress"
-    },
-    {
-      "id": "2",
-      "title": "Build Task App",
-      "description": "Kanban board",
-      "status": "todo"
-    },
-    {
-      "id": "1769532295211",
-      "title": "Sleep for 12 hrs",
-      "description": "for better brain health you ought to do this",
-      "deadline": "2026-01-27",
-      "status": "done"
-    },
-    {
-      "id": "1769561535573",
-      "title": "anime omimasu",
-      "description": "tokidoki mainichi anime mimasu",
-      "deadline": "2025-12-30",
-      "status": "todo"
-    },
-    {
       "id": "1769562992369",
       "title": "rrrr",
       "description": "wwwwwwwww",
@@ -34,25 +8,18 @@
       "status": "done"
     },
     {
-      "id": " 1769565340654",
-      "title": "draww",
-      "description": "er",
-      "deadline": "2025-12-31",
-      "status": "todo"
-    },
-    {
-      "id": "1769565468824",
-      "title": "catttt",
-      "description": "cat",
-      "deadline": "2026-01-07",
+      "id": "1769680815049",
+      "title": "Elemental",
+      "description": "Form elements do not have associated labels\nThese are opportunities to improve the semantics of the controls in your application. This may enhance the experience for users of assistive technology, like a screen reader.",
+      "deadline": "2026-01-03",
       "status": "in-progress"
     },
     {
-      "id": "1769575763935",
-      "title": "blahlbahh",
-      "description": "efdfdf",
-      "deadline": "2026-01-31",
-      "status": "done"
+      "id": "1769680887872",
+      "title": "Best practices",
+      "description": "One main landmark helps screen reader users navigate a web page. Learn more about landmarks.",
+      "deadline": "2026-01-30",
+      "status": "todo"
     }
   ]
 }

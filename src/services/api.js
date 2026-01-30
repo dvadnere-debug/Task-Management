@@ -13,3 +13,7 @@ export function addTask(task) {
 export function updateTask(id, updatedTask) {
   return axios.put(`${API}/${id}`, updatedTask);
 }
+
+export function deleteTask(id) {
+  return axios.delete(`${API}/${id}`);
+}
