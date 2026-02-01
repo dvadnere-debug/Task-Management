@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { useTheme } from "../../context/ThemeContext.jsx";
 
-function NavBar() {
+export default function NavBar() {
   const { theme, toggleTheme } = useTheme();
 
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ function NavBar() {
   );
 }
 
-export const MemoizedComponent = memo(NavBar);
+// export const MemoizedComponent = memo(NavBar);
 
 // import {
 //   Navbar,

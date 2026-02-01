@@ -17,7 +17,7 @@
     {
       "id": "1769753674309",
       "title": "Handling The Erros",
-      "description": "try catch,, error handling",
+      "description": "try catch, error handling",
       "deadline": "0013-02-23",
       "status": "done"
     },
@@ -27,6 +27,13 @@
       "description": "hhii",
       "deadline": "0009-08-07",
       "status": "todo"
+    },
+    {
+      "id": "1769940108379",
+      "title": "working on the figma design",
+      "description": "following specifications",
+      "deadline": "2026-02-03",
+      "status": "in-progress"
     }
   ]
 }

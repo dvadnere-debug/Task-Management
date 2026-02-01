@@ -1,19 +1,19 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { MemoizedComponent } from "../components/NavBar/NavBar.jsx";
+import NavBar from "../components/NavBar/NavBar.jsx";
 import TaskBoard from "../components/features/dashboard/TaskBoard.jsx";
 import Login from "../components/features/Login/Login.jsx";
 import ProtectedRoute from "./protectedRoute.jsx";
 import { Memoizedcomponent } from "../context/counter.jsx";
+import Home from "../components/features/HeroSection.jsx/Home.jsx";
 // import PswdGen from "../features/Login/PswdGen.jsx";
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: (
-      <>
-        <MemoizedComponent />
-        <p>Home Page</p>
-      </>
+      <Home>
+        <Home />
+      </Home>
     ),
   },
   {
@@ -21,7 +21,7 @@ const appRouter = createBrowserRouter([
     element: (
       // <ProtectedRoute>
       <>
-        <MemoizedComponent />
+        <NavBar />
         <Login />
       </>
       // </ProtectedRoute>
@@ -32,7 +32,7 @@ const appRouter = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <>
-          <MemoizedComponent />
+          <NavBar />
           <TaskBoard />
         </>
       </ProtectedRoute>
