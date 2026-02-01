@@ -6,6 +6,7 @@ function TaskColumn({
 
   onMoveTask = () => {},
   onDeleteTask = () => {},
+  onEditTask,
 }) {
   return (
     <div
@@ -40,6 +41,7 @@ function TaskColumn({
             task={task}
             onMoveTask={onMoveTask}
             onDeleteTask={onDeleteTask}
+            onEditTask={onEditTask}
           />
         ))}
       </div>

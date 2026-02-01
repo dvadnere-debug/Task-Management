@@ -5,6 +5,7 @@ export default function TaskCard({
   task,
   onMoveTask = () => {},
   onDeleteTask = () => {},
+  onEditTask,
 }) {
   return (
     <div className="task-card">
@@ -34,6 +35,7 @@ export default function TaskCard({
       </div>
 
       <small className="task-deadline">Due: {task.deadline}</small>
+      <small onClick={() => onEditTask(task)}>Edit?</small>
     </div>
   );
 }

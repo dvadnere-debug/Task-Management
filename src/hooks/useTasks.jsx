@@ -56,11 +56,21 @@ export function useTasks() {
     });
   }
 
+  function handleUpdateTask(updatedTask) {
+    return updateTask(updatedTask.id, updatedTask).then((response) => {
+      setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          Number(task.id) === Number(updatedTask.id) ? response.data : task,
+        ),
+      );
+    });
+  }
   return {
     tasks,
     loading,
     handleAddTask,
     moveTask,
     deletingTask,
+    handleUpdateTask,
   };
 }

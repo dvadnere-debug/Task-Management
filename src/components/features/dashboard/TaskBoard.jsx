@@ -16,14 +16,30 @@ function TaskBoard() {
   //const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [text, setText] = useState("");
-  const { tasks, loading, handleAddTask, moveTask, deletingTask } = useTasks();
+  const [edit, setEdit] = useState(null);
+  const {
+    tasks,
+    loading,
+    handleAddTask,
+    moveTask,
+    deletingTask,
+    handleUpdateTask,
+  } = useTasks();
+
+  function onEditTask(task) {
+    setEdit(task);
+    setShowForm(true);
+  }
 
   function onAddTask(newTask) {
-    handleAddTask(
-      newTask.then(() => {
-        setShowForm(false);
-      }),
-    );
+    if (edit) {
+      handleUpdateTask(newTask);
+    } else {
+      handleAddTask(newTask);
+    }
+
+    setEdit(null);
+    setShowForm(false);
   }
 
   // console.log(tasks.filter((task) => task.title.includes("Best")));
@@ -76,7 +92,7 @@ function TaskBoard() {
     ///loading states
     return (
       <h1>
-        <p>hee hee Loading tasks...</p>
+        <p>wait.. Loading ur tasks.</p>
       </h1>
     );
   }
@@ -109,7 +125,11 @@ function TaskBoard() {
         <AddTaskForm
           isOpen={showForm}
           onAddTask={onAddTask}
-          onClose={() => setShowForm(false)}
+          onClose={() => {
+            setShowForm(false);
+            setEdit(null);
+          }}
+          editTask={edit}
         />
       )}
 
@@ -126,6 +146,7 @@ function TaskBoard() {
           // onAddClick={() => setShowForm(true)}
           onMoveTask={moveTask}
           onDeleteTask={deletingTask}
+          onEditTask={onEditTask}
         />
 
         <TaskColumn
@@ -138,6 +159,7 @@ function TaskBoard() {
           // onAddClick={() => setShowForm(true)}
           onMoveTask={moveTask}
           onDeleteTask={deletingTask}
+          onEditTask={onEditTask}
         />
 
         <TaskColumn
@@ -149,6 +171,7 @@ function TaskBoard() {
           // onAddClick={() => setShowForm(true)}
           onMoveTask={moveTask}
           onDeleteTask={deletingTask}
+          onEditTask={onEditTask}
         />
       </div>
     </div>

@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./AddTaskForm.css";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
-export default function AddTaskForm({ onAddTask, onClose, isOpen }) {
+export default function AddTaskForm({ onAddTask, onClose, isOpen, editTask }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [deadline, setDeadline] = useState("");
+
+  useEffect(() => {
+    if (editTask) {
+      setTitle(editTask.title);
+      setDescription(editTask.description);
+      setDeadline(editTask.deadline);
+    }
+  }, [editTask]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,11 +24,11 @@ export default function AddTaskForm({ onAddTask, onClose, isOpen }) {
       return;
     }
     const newTask = {
-      id: String(Date.now()),
+      id: editTask ? editTask.id : String(Date.now()),
       title,
       description,
       deadline,
-      status: "todo",
+      status: editTask ? editTask.status : "todo",
     };
 
     onAddTask(newTask); //parent child communication, taskBoard passes function as a prop, AddTaskForm calles function (onAddTask) with data, TaskBoard updates state.
@@ -36,12 +44,12 @@ export default function AddTaskForm({ onAddTask, onClose, isOpen }) {
       onClose={onClose}
       className="modal-popup"
     >
-      <h2>Add new Task</h2>
+      <h2>{editTask ? "Edit task" : "Add new Task"}</h2>
       <button className="close-button" onClick={onClose}>
         X
       </button>
       <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
-        <h3>Add Task</h3>
+        <h3>{editTask ? "Update Task" : "Add Task"}</h3>
 
         <input
           placeholder="Title"
