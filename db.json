@@ -35,5 +35,27 @@
       "deadline": "2026-02-03",
       "status": "in-progress"
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "divya",
+      "email": "abc@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "8d8a",
+      "userName": "Megatron",
+      "password": "654321",
+      "email": "megamega@gmail.com",
+      "phone": "IamMegatron"
+    },
+    {
+      "id": "05f4",
+      "userName": "coco",
+      "email": "coco@gmail.com",
+      "password": "123456",
+      "phone": "6767676767"
+    }
   ]
 }

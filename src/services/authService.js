@@ -1,0 +1,21 @@
+import axios from "axios";
+const API = "http://localhost:3001/users";
+
+export const registerUser = async (data) => {
+  const oldUser = await axios.get(`${API}/?email=${data.email}`);
+  if (oldUser.data.length > 0) {
+    throw new Error("user already exists");
+  }
+  const response = await axios.post(API, data);
+  return response.data;
+};
+
+export const loginUser = async (email, password) => {
+  const response = await axios.get(
+    `${API}/?email=${email}&password=${password}`,
+  );
+  if (response.data.length === 0) {
+    throw new Error("invalid");
+  }
+  return response.data[0];
+};

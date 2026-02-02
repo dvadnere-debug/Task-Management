@@ -6,6 +6,7 @@ import Login from "../components/features/Login/Login.jsx";
 import ProtectedRoute from "./protectedRoute.jsx";
 import { Memoizedcomponent } from "../context/counter.jsx";
 import Home from "../components/features/HeroSection.jsx/Home.jsx";
+import UserProfile from "../components/features/HeroSection.jsx/UserProfile.jsx";
 // import PswdGen from "../features/Login/PswdGen.jsx";
 const appRouter = createBrowserRouter([
   {
@@ -39,8 +40,8 @@ const appRouter = createBrowserRouter([
     ),
   },
   {
-    path: "/counter",
-    element: <Memoizedcomponent />,
+    path: "/profile",
+    element: <UserProfile />,
   },
   // {
   //   path: "/generatePassword",
