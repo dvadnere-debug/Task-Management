@@ -1,31 +1,24 @@
 import { Controller } from "react-hook-form";
-import InputField from "./CommonInput";
+import FormRenderer from "./FormRenderer";
 
-export default function FormControllerInput({
-  name,
-  control,
-  rules,
-  label,
-  type,
-  placeholder,
-  error,
-}) {
+export default function FormController({ config, control, errors }) {
   return (
-    <Controller
-      name={name}
-      control={control}
-      rules={rules}
-      render={({ field }) => (
-        <InputField
-          label={label}
-          type={type}
-          placeholder={placeholder}
-          error={error}
-          value={field.value || ""}
-          onChange={field.onChange}
-          onBlur={field.onBlur}
+    <div className="space-y-6">
+      {config.map((fieldConfig) => (
+        <Controller
+          key={fieldConfig.name}
+          name={fieldConfig.name}
+          control={control}
+          rules={fieldConfig.rules}
+          render={({ field }) => (
+            <FormRenderer
+              config={fieldConfig}
+              field={field}
+              error={errors[fieldConfig.name]}
+            />
+          )}
         />
-      )}
-    />
+      ))}
+    </div>
   );
 }

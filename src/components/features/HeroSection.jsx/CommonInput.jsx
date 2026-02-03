@@ -25,14 +25,20 @@
 //     </div>
 //   );
 // }
-export default function InputField({ label, type, placeholder, error, field }) {
+export default function InputField({
+  label,
+  inputType,
+  placeholder,
+  error,
+  field,
+}) {
   return (
     <div className="space-y-1">
       <label className="text-xs font-semibold text-textColor">{label}</label>
 
       <input
         {...field}
-        type={type}
+        type={inputType}
         placeholder={placeholder}
         className={`w-full p-3 rounded-md text-sm text-white outline-none
           border ${

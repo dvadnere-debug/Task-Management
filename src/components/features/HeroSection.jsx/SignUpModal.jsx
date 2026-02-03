@@ -3,6 +3,8 @@ import Modal from "react-modal";
 import loginImg from "../../../assets/login-image.png";
 import { useForm, Controller } from "react-hook-form";
 import { registerUser } from "../../../services/authService";
+import FormController from "./FormcontrollerInput";
+import { SIGNUP_FORM_CONTROLLER } from "./constants/SignupFormController";
 
 export default function SignUpModal({ isOpen, onClose }) {
   const {
@@ -68,7 +70,12 @@ export default function SignUpModal({ isOpen, onClose }) {
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div className="space-y-1">
+            <FormController
+              config={SIGNUP_FORM_CONTROLLER}
+              control={control}
+              errors={errors}
+            />
+            {/* <div className="space-y-1">
               <label className="text-xs font-semibold text-textColor">
                 User Name
               </label>
@@ -169,7 +176,7 @@ export default function SignUpModal({ isOpen, onClose }) {
               <input type="checkbox" className="mt-1" />I confirm that I am 18
               years or older and legally allowed to participate in online
               gaming.
-            </label>
+            </label> */}
 
             <button
               type="submit"

@@ -105,8 +105,11 @@ import loginImg from "../../../assets/login-image.png";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../../services/authService";
+import { useAuth } from "../../../context/AuthContext";
+
 import { LOGIN_FORM_CONTROLLER } from "./constants/LoginFormController";
 import FormRenderer from "./FormRenderer";
+import FormController from "./FormcontrollerInput";
 
 Modal.setAppElement("#root");
 
@@ -121,13 +124,14 @@ export default function LoginModal({ isOpen, onClose }) {
       password: "",
     },
   });
-
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
       const user = await loginUser(data.email, data.password);
-      localStorage.setItem("user", JSON.stringify(user));
+      //   localStorage.setItem("user", JSON.stringify(user));
+      login(user);
       navigate("/profile");
     } catch (error) {
       alert("Invalid email or password");
@@ -171,7 +175,7 @@ export default function LoginModal({ isOpen, onClose }) {
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <FormRenderer
+            <FormController
               config={LOGIN_FORM_CONTROLLER}
               control={control}
               errors={errors}

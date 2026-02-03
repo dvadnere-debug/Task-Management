@@ -56,6 +56,13 @@
       "email": "coco@gmail.com",
       "password": "123456",
       "phone": "6767676767"
+    },
+    {
+      "id": "2e5d",
+      "userName": "R2D2",
+      "email": "starwars@gmail.com",
+      "password": "123456",
+      "phone": "2323232323"
     }
   ]
 }
