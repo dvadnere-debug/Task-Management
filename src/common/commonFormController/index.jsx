@@ -1,7 +1,8 @@
 import { Controller } from "react-hook-form";
-import FormRenderer from "./FormRenderer";
+import FormRenderer from "../commonFormRender";
 
 export default function FormController({ config, control, errors }) {
+  console.log("config", config);
   return (
     <div className="space-y-6">
       {config.map((fieldConfig) => (

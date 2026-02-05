@@ -1,11 +1,18 @@
 import { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
-import FormControllerInput from "./FormcontrollerInput";
+import FormControllerInput from "../../../common/commonFormController";
 import { useAuth } from "../../../context/AuthContext";
 import { updateUser } from "../../../services/userService";
+import { SIGNUP_FORM_CONTROLLER } from "../../Signup/constant";
+import FormController from "../../../common/commonFormController";
 
 export default function ProfilePage() {
-  const { control, handleSubmit, reset } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       fullName: "",
       username: "",
@@ -69,18 +76,16 @@ export default function ProfilePage() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-center gap-6"
       >
-        {/* row 1 */}
         <div className="flex gap-10">
           <div className="flex flex-col gap-2">
             <label className="text-[0.875rem]">Full Name</label>
-            <FormControllerInput
-              name="fullName"
+            <FormController
+              config={SIGNUP_FORM_CONTROLLER}
               control={control}
-              label="Full Name"
-              type="text"
-              placeholder=""
+              errors={errors}
             />
-            {/* <Controller
+          </div>
+          {/* <Controller
               name="fullName"
               control={control}
               render={({ field }) => (
@@ -90,16 +95,10 @@ export default function ProfilePage() {
                 />
               )}
             /> */}
-          </div>
-          <div className="flex flex-col gap-2">
+        </div>
+        {/* <div className="flex flex-col gap-2">
             <label className="text-[0.875rem]">Username</label>
-            <FormControllerInput
-              name="username"
-              control={control}
-              label="Username"
-              type="text"
-              placeholder=""
-            />
+            <FormControllerInput control={control} />
             {/* <Controller
               name="username"
               control={control}
@@ -110,11 +109,11 @@ export default function ProfilePage() {
                 />
               )}
             /> */}
-          </div>
-        </div>
+        {/* </div>
+        </div> */}
 
-        {/* Row 2: E-Mail & Phone (496px each) */}
-        <div className="flex gap-10">
+        {/* Row 2 E-Mail n Phone */}
+        {/* <div className="flex gap-10">
           <div className="flex flex-col gap-2">
             <label className="text-[0.875rem]">E-Mail ID</label>
             <Controller
@@ -143,10 +142,10 @@ export default function ProfilePage() {
               )}
             />
           </div>
-        </div>
+        </div> */}
 
-        {/* Row 3: Gender & DOB (496px each) */}
-        <div className="flex gap-10">
+        {/* Row 3 Gender n DOB*/}
+        {/* <div className="flex gap-10">
           <div className="flex flex-col gap-2">
             <label className="text-[0.875rem]">Gender</label>
             <Controller
@@ -177,8 +176,8 @@ export default function ProfilePage() {
                 />
               )}
             />
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
 
         <button
           type="submit"

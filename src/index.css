@@ -1,17 +1,14 @@
 @import "tailwindcss";
-@theme{
+@theme {
   --color-backGroundColor: #1a082a;
-  --color-textColor:#fff;
-  --color-warning:#FF0000;
-  --color-borderColor:#E4A02D;
-  --color-btnColor:#420356;
-  --color-secondaryColor:#E4A02D;
-
-
+  --color-textColor: #fff;
+  --color-warning: #ff0000;
+  --color-borderColor: #e4a02d;
+  --color-btnColor: #420356;
+  --color-secondaryColor: #e4a02d;
 }
 
-
- /* body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
@@ -31,7 +28,7 @@ body.dark {
 body.light {
   background-color: #ffffff;
   color: #121212;
-} *// /* button {
+} */ /* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -61,7 +58,7 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+}*/
 .board {
   display: flex;
   gap: 20px;

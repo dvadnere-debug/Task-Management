@@ -3,8 +3,8 @@ import Modal from "react-modal";
 import loginImg from "../../../assets/login-image.png";
 import { useForm, Controller } from "react-hook-form";
 import { registerUser } from "../../../services/authService";
-import FormController from "./FormcontrollerInput";
-import { SIGNUP_FORM_CONTROLLER } from "./constants/SignupFormController";
+import FormController from "../../../common/commonFormController";
+import { SIGNUP_FORM_CONTROLLER } from "../../Signup/constant";
 
 export default function SignUpModal({ isOpen, onClose }) {
   const {

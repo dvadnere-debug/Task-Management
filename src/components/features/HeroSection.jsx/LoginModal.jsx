@@ -107,9 +107,9 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../../services/authService";
 import { useAuth } from "../../../context/AuthContext";
 
-import { LOGIN_FORM_CONTROLLER } from "./constants/LoginFormController";
-import FormRenderer from "./FormRenderer";
-import FormController from "./FormcontrollerInput";
+import { LOGIN_FORM_CONTROLLER } from "../../Login/constant";
+import FormRenderer from "../../../common/commonFormRender";
+import FormController from "../../../common/commonFormController";
 
 Modal.setAppElement("#root");
 

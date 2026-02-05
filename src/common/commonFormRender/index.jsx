@@ -1,4 +1,4 @@
-import InputField from "./CommonInput";
+import InputField from "../commonInput";
 
 export default function FormRenderer({ config, field, error }) {
   const { label, type, placeholder, showForgotPassword, inputType } = config;

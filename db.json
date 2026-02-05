@@ -33,7 +33,7 @@
       "title": "working on the figma design",
       "description": "following specifications",
       "deadline": "2026-02-03",
-      "status": "in-progress"
+      "status": "done"
     }
   ],
   "users": [
@@ -41,7 +41,14 @@
       "id": "1",
       "username": "divya",
       "email": "abc@gmail.com",
-      "password": "123456"
+      "password": "123456",
+      "fullName": "",
+      "phone": "4545454545",
+      "gender": "Gender",
+      "dob": "",
+      "address": "",
+      "zipCode": "",
+      "state": ""
     },
     {
       "id": "8d8a",
