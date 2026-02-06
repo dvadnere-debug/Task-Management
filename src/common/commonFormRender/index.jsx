@@ -1,6 +1,6 @@
 import InputField from "../commonInput";
 
-export default function FormRenderer({ config, field, error }) {
+export default function FormRenderer({ config, field, errors }) {
   const { label, type, placeholder, showForgotPassword, inputType } = config;
 
   return (
@@ -9,7 +9,7 @@ export default function FormRenderer({ config, field, error }) {
         label={label}
         type={type}
         placeholder={placeholder}
-        error={error}
+        errors={errors}
         inputType={inputType}
         field={field}
       />

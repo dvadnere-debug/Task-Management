@@ -39,14 +39,14 @@ export default function SignUpModal({ isOpen, onClose }) {
       isOpen={isOpen}
       onRequestClose={onClose}
       className="w-6xl mx-auto"
-      overlayClassName="h-full fixed inset-0 flex justify-center "
+      overlayClassName="h-full fixed flex justify-center "
     >
       <div className="flex flex-col md:flex-row bg-backGroundColor rounded-2xl overflow-hidden">
         {/* Left Image div */}
         <div className="hidden md:block w-[46%] relative">
           <img
             src={loginImg}
-            alt="Login Visual"
+            alt="LoginImg"
             className="h-full w-full object-cover"
           />
         </div>
@@ -57,7 +57,7 @@ export default function SignUpModal({ isOpen, onClose }) {
             onClick={onClose}
             className="absolute top-6 right-6 text-textColor cursor-pointer"
           >
-            ✕
+            X
           </button>
 
           <div className="text-center mb-8">

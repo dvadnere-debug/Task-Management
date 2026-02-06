@@ -24,7 +24,7 @@ export default function LoginModal({ isLoginOpen, onClose, letsOpenSignup }) {
         <div className="hidden md:block w-[46%]">
           <img
             src={loginImg}
-            alt="Login Visual"
+            alt="LoginImg"
             className="h-full w-full object-cover"
           />
         </div>

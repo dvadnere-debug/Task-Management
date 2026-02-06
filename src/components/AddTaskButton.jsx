@@ -4,6 +4,9 @@ export default function AddTaskButton({ onAddClick = () => {} }) {
       style={{
         display: "flex",
         justifyContent: "flex-end",
+        border:"2px solid black",
+        borderRadius:"10px",
+        padding:"4px",
         marginBottom: "20px",
         marginRight: "20px",
       }}

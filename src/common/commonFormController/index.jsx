@@ -15,7 +15,7 @@ export default function FormController({ config, control, errors }) {
             <FormRenderer
               config={fieldConfig}
               field={field}
-              error={errors[fieldConfig.name]}
+              errors={errors[fieldConfig.name]}
             />
           )}
         />

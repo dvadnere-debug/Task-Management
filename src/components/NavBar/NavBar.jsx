@@ -11,7 +11,7 @@ export default function NavBar() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -27,15 +27,16 @@ export default function NavBar() {
         <li>
           <Link to="/">Home</Link>
         </li>
-        {isLoggedIn && (
+        {isLoggedIn && (<>
           <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>
+          <li><Link to="/profile">Profile</Link></li></>
         )}
       </ul>
 
       <div className="navbar-right">
-        <button onClick={toggleTheme}>Theme</button>
+        <button className="theme-btn" onClick={toggleTheme}>Theme</button>
         {!isLoggedIn ? (
           <Link to="/login" className="nav-btn">
             Login

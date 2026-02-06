@@ -5,8 +5,8 @@ import TaskBoard from "../components/features/dashboard/TaskBoard.jsx";
 import Login from "../components/features/Login/Login.jsx";
 import ProtectedRoute from "./protectedRoute.jsx";
 import { Memoizedcomponent } from "../context/counter.jsx";
-import Home from "../components/features/HeroSection.jsx/Home.jsx";
-import UserProfile from "../components/features/HeroSection.jsx/UserProfile.jsx";
+import Home from "../components/features/HeroSection/Home.jsx";
+import UserProfile from "../components/UserProfile/component/index.jsx";
 // import PswdGen from "../features/Login/PswdGen.jsx";
 import { ThemeProvider } from "../context/ThemeContext.jsx";
 const appRouter = createBrowserRouter([

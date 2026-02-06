@@ -23,7 +23,7 @@ export default function SignUpModal({ isSignupOpen, onClose, letsOpenLogin }) {
       className="w-6xl mx-auto"
       overlayClassName="h-full fixed inset-0 flex justify-center"
     >
-      <div className="flex flex-col md:flex-row bg-backGroundColor rounded-2xl overflow-hidden">
+      <div className="flex h-[60%]  flex-col md:flex-row bg-backGroundColor rounded-2xl overflow-hidden">
         {/* Left Image */}
         <div className="hidden md:block w-[46%]">
           <img

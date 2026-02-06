@@ -22,8 +22,10 @@ export default function useLogin(onClose) {
   const onSubmit = async (data) => {
     try {
       const user = await loginUser(data.email, data.password);
+      localStorage.setItem("token", user.password);
       login(user);
-      onClose?.(); // optional chaining (safe)
+     
+      onClose?.(); 
       navigate("/profile");
     } catch (error) {
       alert("Invalid email or password");

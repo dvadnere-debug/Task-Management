@@ -29,7 +29,7 @@ export default function InputField({
   label,
   inputType,
   placeholder,
-  error,
+  errors,
   field,
 }) {
   return (
@@ -42,11 +42,11 @@ export default function InputField({
         placeholder={placeholder}
         className={`w-full p-3 rounded-md text-sm text-white outline-none
           border ${
-            error ? "border-warning" : "border-textColor"
+            errors ? "border-warning" : "border-textColor"
           } focus:border-borderColor`}
       />
 
-      {error && <p className="text-warning text-xs">{error.message}</p>}
+      {errors && <p className="text-warning text-xs">{errors.message}</p>}
     </div>
   );
 }

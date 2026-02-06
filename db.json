@@ -39,14 +39,14 @@
   "users": [
     {
       "id": "1",
-      "username": "divya",
+      "username": "",
       "email": "abc@gmail.com",
       "password": "123456",
-      "fullName": "",
+      "fullname": "John Doe",
       "phone": "4545454545",
       "gender": "Gender",
       "dob": "",
-      "address": "",
+      "address": "Chandni Chowk",
       "zipCode": "",
       "state": ""
     },

@@ -15,6 +15,9 @@ export default function SearchBar({ text, setText }) {
         // onClick={searchText}
         style={{
           padding: "8px",
+          border: "2px solid black",
+          borderRadius: "10px",
+
           width: "300px",
           marginBottom: "20px",
         }}

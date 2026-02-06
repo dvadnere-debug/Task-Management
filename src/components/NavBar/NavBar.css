@@ -26,6 +26,11 @@
   color: #000000;
   text-decoration: none;
   letter-spacing: 0.4px;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+.logo:hover {
+  transform: rotate(0deg);
 }
 
 .navbar-center {
@@ -40,6 +45,12 @@
   font-size: 15px;
   font-weight: 500;
   padding-bottom: 2px;
+}
+.theme-btn {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: none;
+  cursor: pointer;
 }
 
 .navbar-right {
