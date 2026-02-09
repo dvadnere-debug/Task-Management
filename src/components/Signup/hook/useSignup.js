@@ -21,7 +21,7 @@ export default function useSignup(onClose) {
     try {
       const user = await registerUser(data);
       localStorage.setItem("user", JSON.stringify(user));
-      alert("Signup successful!");
+      
       reset();
       onClose?.();
     } catch (error) {

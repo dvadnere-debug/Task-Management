@@ -5,17 +5,20 @@ export default function TaskCard({
   task,
   onMoveTask = () => {},
   onDeleteTask = () => {},
-  onEditTask,
-}) {
+  onEditTask,key
+})
+ {
   return (
-    <div className="task-card">
+    <div className="task-card" onClick={()=>this.selectCard(key)}>
       <button className="delete-btn" onClick={() => onDeleteTask(task.id)}>
         x
       </button>
+      
 
       <div className="task-header">
         <h4>{task.title}</h4>
-        <span className="task-level">Status: {task.status}</span>
+        <span className="task-level">Status: {task.status}       Priority: {task.priority}</span>
+
       </div>
 
       <p className="task-desc">{task.description}</p>

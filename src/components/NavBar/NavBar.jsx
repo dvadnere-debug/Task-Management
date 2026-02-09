@@ -1,17 +1,25 @@
-import React, { memo } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { useTheme } from "../../context/ThemeContext.jsx";
+import LoginModal from "../Login/component";
+import SignUpModal from "../Signup/component/index.jsx";
+import { Toaster } from "react-hot-toast";
 
 export default function NavBar() {
   const { theme, toggleTheme } = useTheme();
+   const [openLogin, setOpenLogin] = useState(false);
+  const [openSignup, setOpenSignup] = useState(false);
 
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("token");
 
   const logout = () => {
-    localStorage.removeItem("token");
+    setTimeout(()=> {alert("Are you sure you want to log out?");
+      localStorage.removeItem("token");
     navigate("/");
+    },2000);
+    
   };
 
   return (
@@ -35,7 +43,53 @@ export default function NavBar() {
         )}
       </ul>
 
-      <div className="navbar-right">
+
+          
+           <LoginModal
+                    isLoginOpen={openLogin}
+                    onClose={() => setOpenLogin(false)}
+                    letsOpenSignup={() => {
+                      setOpenSignup(true);
+                      setOpenLogin(false);
+                    }}
+                  />
+                  <SignUpModal
+          isSignupOpen={openSignup}
+          onClose={() => setOpenSignup(false)}
+          letsOpenLogin={() => {
+            setOpenLogin(true);
+            setOpenSignup(false);
+          }}
+        />
+
+        <div className="navbar-right">
+        <button className="theme-btn" onClick={toggleTheme}>Theme</button>
+        
+        {!isLoggedIn ? (
+          <>
+           
+           <button
+            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 font-medium text-neutral-600 transition-all duration-100 [box-shadow:5px_5px_rgb(82_82_82)] active:translate-x-0.75 active:translate-y-0.75 active:[box-shadow:0px_0px_rgb(82_82_82)]"
+            onClick={() => setOpenLogin(true)}
+          >
+            Login
+          </button>
+           <button
+            className="margin group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 font-medium text-neutral-600 transition-all duration-100 [box-shadow:5px_5px_rgb(82_82_82)] active:translate-x-0.75 active:translate-y-0.75 active:[box-shadow:0px_0px_rgb(82_82_82)]"
+            onClick={() => setOpenSignup(true)}
+          >
+            SignUP
+          </button>
+          </>
+        ) : (
+          
+          <button className="nav-btn logout" onClick={logout}>
+            Logout
+          </button>
+        )}
+      </div>
+
+      {/* <div className="navbar-right">
         <button className="theme-btn" onClick={toggleTheme}>Theme</button>
         {!isLoggedIn ? (
           <Link to="/login" className="nav-btn">
@@ -46,7 +100,7 @@ export default function NavBar() {
             Logout
           </button>
         )}
-      </div>
+      </div> */}
       {/* </div> */}
     </nav>
   );

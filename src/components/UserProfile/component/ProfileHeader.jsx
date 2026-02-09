@@ -10,7 +10,7 @@ export default function ProfileHeader({ user }) {
       </div>
 
       <h2 className="text-[1.5rem] font-bold">Name:{user.fullname}</h2>
-      <p className="text-[0.875rem] text-gray-400">
+      <p className="text-[0.875rem] text-gray-400">{console.log(user.username)}
         User ID: {user.username || user.userName}
       </p>
     </div>

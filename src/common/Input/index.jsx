@@ -27,6 +27,7 @@
 // }
 export default function InputField({
   label,
+  type,
   inputType,
   placeholder,
   errors,
@@ -38,6 +39,7 @@ export default function InputField({
 
       <input
         {...field}
+        // type={type}
         type={inputType}
         placeholder={placeholder}
         className={`w-full p-3 rounded-md text-sm text-white outline-none

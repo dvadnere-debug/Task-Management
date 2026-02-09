@@ -1,29 +1,26 @@
 import React from "react";
 import Modal from "react-modal";
 import loginImg from "../../../assets/login-image.png";
-import Button from "../../../common/commonButton/Button";
-import FormController from "../../../common/commonFormController";
+import Button from "../../../common/Button/Button";
+import FormController from "../../../common/FormController";
 import useSignup from "../hook/useSignup";
+import toast, { Toaster } from "react-hot-toast";
 
 Modal.setAppElement("#root");
 
 export default function SignUpModal({ isSignupOpen, onClose, letsOpenLogin }) {
-  const {
-    control,
-    errors,
-    handleSubmit,
-    onSubmit,
-    SIGNUP_FORM_CONTROLLER,
-  } = useSignup(onClose);
+  const { control, errors, handleSubmit, onSubmit, SIGNUP_FORM_CONTROLLER } =
+    useSignup(onClose);
+const handleReactHotToast=()=>{toast("signup successful!");}
 
   return (
     <Modal
       isOpen={isSignupOpen}
       onRequestClose={onClose}
-      className="w-6xl mx-auto"
-      overlayClassName="h-full fixed inset-0 flex justify-center"
+      className="w-6xl mx-auto "
+      overlayClassName="h-full  fixed inset-0 flex justify-center"
     >
-      <div className="flex h-[60%]  flex-col md:flex-row bg-backGroundColor rounded-2xl overflow-hidden">
+      <div className="flex max-h-[90vh] flex-col md:flex-row bg-backGroundColor rounded-2xl overflow-hidden">
         {/* Left Image */}
         <div className="hidden md:block w-[46%]">
           <img
@@ -35,9 +32,7 @@ export default function SignUpModal({ isSignupOpen, onClose, letsOpenLogin }) {
 
         {/* Right */}
         <div className="w-full md:w-[54%] p-10 flex flex-col justify-center text-textColor relative">
-          <Button
-            isClose onClick={onClose}
-          >
+          <Button isClose onClick={onClose}>
             X
           </Button>
 
@@ -57,11 +52,19 @@ export default function SignUpModal({ isSignupOpen, onClose, letsOpenLogin }) {
               errors={errors}
             />
 
-            <Button type="submit">Signup</Button>
+            <span>
+              <input type="checkbox" />I confirm that I am 18 years or older and
+              legally allowed to participate in online gaming
+            </span>
+            <Button type="submit" onClick={handleReactHotToast}>Signup</Button>
+            <Toaster />
 
             <p className="text-center text-xs text-textColor">
               Already have an account?{" "}
-              <span className="text-secondaryColor cursor-pointer hover:underline" onClick={letsOpenLogin}>
+              <span
+                className="text-secondaryColor cursor-pointer hover:underline"
+                onClick={letsOpenLogin}
+              >
                 Login
               </span>
             </p>

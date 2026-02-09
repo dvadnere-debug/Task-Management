@@ -108,8 +108,8 @@ import { loginUser } from "../../../services/authService";
 import { useAuth } from "../../../context/AuthContext";
 
 import { LOGIN_FORM_CONTROLLER } from "../../Login/constant";
-import FormRenderer from "../../../common/commonFormRender";
-import FormController from "../../../common/commonFormController";
+import FormRenderer from "../../../common/FormRender";
+import FormController from "../../../common/FormController";
 
 Modal.setAppElement("#root");
 

@@ -2,15 +2,20 @@ import React from "react";
 import Modal from "react-modal";
 import loginImg from "../../../assets/login-image.png";
 
-import FormController from "../../../common/commonFormController";
+import FormController from "../../../common/FormController";
 import useLogin from "../hooks/useLogin";
-import Button from "../../../common/commonButton/Button";
+import Button from "../../../common/Button/Button";
+import toast, {Toaster} from "react-hot-toast"
 
 Modal.setAppElement("#root");
 
 export default function LoginModal({ isLoginOpen, onClose, letsOpenSignup }) {
   const { control, errors, handleSubmit, onSubmit, LOGIN_FORM_CONTROLLER } =
     useLogin(onClose);
+
+    const handleReactHotToast=()=> {
+      toast.success("login successful!");
+    }
 
   return (
     <Modal
@@ -31,9 +36,7 @@ export default function LoginModal({ isLoginOpen, onClose, letsOpenSignup }) {
 
         {/* Right section */}
         <div className="w-full md:w-[54%] p-10 flex flex-col justify-center relative">
-          <Button
-            isClose onClick={onClose}
-          >
+          <Button isClose onClick={onClose}>
             X
           </Button>
 
@@ -53,7 +56,8 @@ export default function LoginModal({ isLoginOpen, onClose, letsOpenSignup }) {
               errors={errors}
             />
 
-            <Button type="submit">Login</Button>
+            <Button type="submit" onClick={handleReactHotToast}>Login</Button>
+            <Toaster />
 
             <p className="text-center text-xs text-textColor">
               Don't have an account?{" "}

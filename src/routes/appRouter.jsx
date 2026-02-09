@@ -2,7 +2,6 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar.jsx";
 import TaskBoard from "../components/features/dashboard/TaskBoard.jsx";
-import Login from "../components/features/Login/Login.jsx";
 import ProtectedRoute from "./protectedRoute.jsx";
 import { Memoizedcomponent } from "../context/counter.jsx";
 import Home from "../components/features/HeroSection/Home.jsx";
@@ -25,7 +24,7 @@ const appRouter = createBrowserRouter([
       // <ProtectedRoute>
       <>
         <NavBar />
-        <Login />
+        {/* <Login /> */}
       </>
       // </ProtectedRoute>
     ),

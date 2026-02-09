@@ -5,50 +5,63 @@
       "title": "Elemental",
       "description": "Form elements do not have associated labels\nThese are opportunities to improve the semantics of the controls in your application.",
       "deadline": "2026-01-03",
-      "status": "todo"
+      "status": "done",
+      "priority": "low"
     },
     {
       "id": "1769680887872",
       "title": "Best practices",
       "description": "One main landmark helps screen reader users navigate a web page. Learn more about landmarks.",
       "deadline": "2026-01-30",
-      "status": "in-progress"
-    },
-    {
-      "id": "1769753674309",
-      "title": "Handling The Erros",
-      "description": "try catch, error handling",
-      "deadline": "0013-02-23",
-      "status": "done"
+      "status": "in-progress",
+      "priority": "medium"
     },
     {
       "id": "1769779373839",
       "title": "yuyu completing tailwind",
       "description": "hhii",
       "deadline": "0009-08-07",
-      "status": "todo"
+      "status": "todo",
+      "priority": "high"
     },
     {
       "id": "1769940108379",
       "title": "working on the figma design",
       "description": "following specifications",
       "deadline": "2026-02-03",
+      "status": "in-progress",
+      "priority": "high"
+    },
+    {
+      "id": "1770622003933",
+      "title": "Redesigning the Dashboard",
+      "description": "reference to figma",
+      "deadline": "2026-02-10",
+      "priority": "Low",
       "status": "done"
+    },
+    {
+      "id": "1770632669942",
+      "title": "gggggggg",
+      "description": "eeeeeeeee",
+      "deadline": "2026-02-12",
+      "priority": "Medium",
+      "status": "todo"
     }
   ],
   "users": [
     {
       "id": "1",
-      "username": "",
+      "username": "nerdyTech",
       "email": "abc@gmail.com",
       "password": "123456",
       "fullname": "John Doe",
-      "phone": "4545454545",
-      "gender": "Gender",
+      "phone": "4544454555",
+      "gender": "Male",
       "dob": "",
       "address": "Chandni Chowk",
       "zipCode": "",
-      "state": ""
+      "state": "Karnataka"
     },
     {
       "id": "8d8a",
@@ -70,6 +83,28 @@
       "email": "starwars@gmail.com",
       "password": "123456",
       "phone": "2323232323"
+    },
+    {
+      "id": "4f85",
+      "userName": "",
+      "email": "b@gmail.com",
+      "password": "111111",
+      "phone": "1212121212",
+      "username": "techNerd",
+      "fullname": "",
+      "gender": "Gender",
+      "dob": "",
+      "address": "",
+      "zipCode": "",
+      "state": ""
+    },
+    {
+      "id": "421b",
+      "userName": "",
+      "email": "a@gmail.com",
+      "password": "222222",
+      "phone": "1211211212",
+      "username": "chewbacca"
     }
   ]
 }

@@ -24,9 +24,9 @@ export default function useLogin(onClose) {
       const user = await loginUser(data.email, data.password);
       localStorage.setItem("token", user.password);
       login(user);
-     
-      onClose?.(); 
-      navigate("/profile");
+
+      onClose?.();
+      navigate("/dashboard");
     } catch (error) {
       alert("Invalid email or password");
       console.log(error.message);

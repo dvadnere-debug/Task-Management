@@ -6,15 +6,17 @@ import { useState } from "react";
 //   deleteTask,
 // } from "../../services/api.js";
 import TaskColumn from "./TaskColumn.jsx";
-import AddTaskForm from "./AddTaskForm.jsx";
+import AddTaskForm from "./AddTaskForm/component";
 import SearchBar from "../../SearchBar.jsx";
 import AddTaskButton from "../../AddTaskButton.jsx";
 import { useTasks } from "../../../hooks/useTasks.jsx";
-
+import useDebounce from "../../../hooks/useDebounce.jsx";
 function TaskBoard() {
   //const [tasks, setTasks] = useState([]);
   //const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
+
   const [text, setText] = useState("");
   const [edit, setEdit] = useState(null);
   const {
@@ -25,6 +27,8 @@ function TaskBoard() {
     deletingTask,
     handleUpdateTask,
   } = useTasks();
+  const debouncedText = useDebounce(text, 1000);
+  const searchText = debouncedText.length >= 3 ? debouncedText : "";
 
   function onEditTask(task) {
     setEdit(task);
@@ -100,8 +104,16 @@ function TaskBoard() {
   return (
     <div>
       <header>Kanban Board</header>
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8 px-4">
+        <div className="w-full md:w-auto">
+          <SearchBar text={text} setText={setText} />
+        </div>
+        <div className="w-full md:w-auto flex justify-center">
+          <AddTaskButton onAddClick={() => setShowForm(true)} />
+        </div>
+      </div>
 
-      <div
+      {/* <div
         style={{
           display: "flex",
           justifyContent: "center",
@@ -112,7 +124,7 @@ function TaskBoard() {
       >
         <SearchBar text={text} setText={setText} />
         <AddTaskButton onAddClick={() => setShowForm(true)} />
-      </div>
+      </div> */}
       {/* <SearchBar text={text} setText={setText} />
       <AddTaskButton
         onAddClick={() => {
@@ -133,45 +145,56 @@ function TaskBoard() {
         />
       )}
 
-      <div
+      {/* <div
         className="board"
         style={{ display: "flex", gap: "20px", justifyContent: "center" }}
-      >
+      > */}
+      <div className="board grid grid-cols-1 lg:grid-cols-3 gap-8 px-6 md:px-12 w-full max-w-300 mx-auto justify-items-center">
         <TaskColumn
-          title="To-Do"
+          title={<b>To-Do</b>}
           tasks={tasks.filter(
             (task) =>
-              task.status === "todo" && task.title.toLowerCase().includes(text),
+              task.status === "todo" &&
+              task.title.toLowerCase().includes(searchText),
           )}
           // onAddClick={() => setShowForm(true)}
           onMoveTask={moveTask}
           onDeleteTask={deletingTask}
           onEditTask={onEditTask}
+          
+          selectedTaskId={selectedTask}
+          onSelectTask={setSelectedTask}
+
         />
 
         <TaskColumn
-          title="In Progress"
+          title={<b>In Progress</b>}
           tasks={tasks.filter(
             (task) =>
               task.status === "in-progress" &&
-              task.title.toLowerCase().includes(text),
+              task.title.toLowerCase().includes(searchText),
           )}
           // onAddClick={() => setShowForm(true)}
           onMoveTask={moveTask}
           onDeleteTask={deletingTask}
           onEditTask={onEditTask}
+           selectedTaskId={selectedTask}
+          onSelectTask={setSelectedTask}
         />
 
         <TaskColumn
-          title="Completed"
+          title={<b>Completed</b>}
           tasks={tasks.filter(
             (task) =>
-              task.status === "done" && task.title.toLowerCase().includes(text),
+              task.status === "done" &&
+              task.title.toLowerCase().includes(searchText),
           )}
           // onAddClick={() => setShowForm(true)}
           onMoveTask={moveTask}
           onDeleteTask={deletingTask}
           onEditTask={onEditTask}
+           selectedTaskId={selectedTask}
+          onSelectTask={setSelectedTask}
         />
       </div>
     </div>

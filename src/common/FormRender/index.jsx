@@ -1,7 +1,17 @@
-import InputField from "../commonInput";
-
+import InputField from "../Input";
+import SelectField from "../Select";
 export default function FormRenderer({ config, field, errors }) {
-  const { label, type, placeholder, showForgotPassword, inputType } = config;
+  const { label, type, placeholder, showForgotPassword, inputType, options } = config;
+  if(type === "select"){
+    return(
+      <SelectField
+      label={label}
+      options={options}
+      errors={errors} 
+      field={field}/>
+    );
+   
+  }
 
   return (
     <div>

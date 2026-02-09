@@ -1,5 +1,5 @@
 // import { useState, useEffect } from "react";
-import "./AddTaskForm.css";
+import "../../AddTaskForm.css";
 // import Modal from "react-modal";
 
 // Modal.setAppElement("#root");
@@ -83,15 +83,24 @@ import "./AddTaskForm.css";
 
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
-import FormInput from "../../FormInput";
+// import FormInput from "../../../../FormInput";
+import { TASK_FORM_CONFIG } from "../constant";
+import Button from "../../../../../common/Button/Button";
+import FormController from "../../../../../common/FormController";
 
 Modal.setAppElement("#root");
 export default function AddTaskForm({ isOpen, onClose, onAddTask, editTask }) {
-  const { control, handleSubmit, reset } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       title: editTask?.title || "",
       description: editTask?.description || "",
       deadline: editTask?.deadline || "",
+      priority: editTask?.priority || "",
     },
   });
 
@@ -118,29 +127,19 @@ export default function AddTaskForm({ isOpen, onClose, onAddTask, editTask }) {
       <h3>{editTask ? "Edit Task" : "Add Task"}</h3>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInput
+        <FormController
+          config={TASK_FORM_CONFIG}
           control={control}
-          name="title"
-          label="Title"
-          rules={{ required: true }}
+          errors={errors}
         />
 
-        <FormInput
-          control={control}
-          name="description"
-          label="Description"
-          rules={{ required: true }}
-        />
+        {/* <SelectField
+              label={label}
+              options={options}
+              errors={errors} 
+              field={field}/> */}
 
-        <FormInput
-          control={control}
-          name="deadline"
-          label="Deadline"
-          type="date"
-          rules={{ required: true }}
-        />
-
-        <button type="submit">{editTask ? "Update" : "Add"}</button>
+        <Button type="submit">{editTask ? "Update" : "Add"} </Button>
 
         <button type="button" onClick={onClose}>
           Cancel
