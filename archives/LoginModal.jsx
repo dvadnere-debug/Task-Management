@@ -197,6 +197,7 @@ export default function LoginModal({ isOpen, onClose }) {
           </form>
         </div>
       </div>
+      
     </Modal>
   );
 }

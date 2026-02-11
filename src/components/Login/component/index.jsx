@@ -5,7 +5,6 @@ import loginImg from "../../../assets/login-image.png";
 import FormController from "../../../common/FormController";
 import useLogin from "../hooks/useLogin";
 import Button from "../../../common/Button/Button";
-import toast, {Toaster} from "react-hot-toast"
 
 Modal.setAppElement("#root");
 
@@ -13,9 +12,7 @@ export default function LoginModal({ isLoginOpen, onClose, letsOpenSignup }) {
   const { control, errors, handleSubmit, onSubmit, LOGIN_FORM_CONTROLLER } =
     useLogin(onClose);
 
-    const handleReactHotToast=()=> {
-      toast.success("login successful!");
-    }
+    
 
   return (
     <Modal
@@ -56,8 +53,8 @@ export default function LoginModal({ isLoginOpen, onClose, letsOpenSignup }) {
               errors={errors}
             />
 
-            <Button type="submit" onClick={handleReactHotToast}>Login</Button>
-            <Toaster />
+            <Button type="submit" >Login</Button>
+            
 
             <p className="text-center text-xs text-textColor">
               Don't have an account?{" "}

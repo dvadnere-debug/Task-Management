@@ -3,6 +3,9 @@ export default {
   theme: {
     extend: {
       colors: {},
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],

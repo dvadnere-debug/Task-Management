@@ -50,11 +50,25 @@ export const PROFILE_FORM_CONTROLLER = [
   {
     name: "dob",
     label: "Date of Birth",
-    type: "date",
+    type: "input",
+    inputType: "date",
     placeholder: "YYYY-MM-DD",
+    minDate:"1900-01-01",
+    maxDate:"2027-01-01",
     rules: {
+      value:true,
       required: { value: true, message: "this is required" },
     },
+    validate: (value) => {
+      if (value < "1900-01-01") {
+        return "Date of birth cannot be before 1900";
+      }
+      if (value > "2027-01-01") {
+        return "Date of birth cannot be after 2027";
+      }
+      return true;
+    },
+  
   },
   {
     name: "address",

@@ -1,4 +1,7 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"); */
 @import "tailwindcss";
+
+
 @theme {
   --color-backGroundColor: #1a082a;
   --color-textColor: #fff;
@@ -6,8 +9,17 @@
   --color-borderColor: #e4a02d;
   --color-btnColor: #420356;
   --color-secondaryColor: #e4a02d;
+  --color-colColr: #371650;
+  --color-colTitle: #420356;
 }
-
+:root {
+  font-family: Poppins;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a082a;
+}
 /* body {
   margin: 0;
   display: flex;
@@ -40,6 +52,14 @@ body.light {
   transition: border-color 0.25s;
 } */
 
+@layer utilities {
+  .border-gradient {
+    border: 3px solid transparent;
+    background:
+      linear-gradient(#2c0e48, #2c0e48) padding-box,
+      linear-gradient(to right, #f2c21b, #c16b08) border-box;
+  }
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -52,8 +72,8 @@ body.light {
   button {
     background-color: #f9f9f9;
   }
-}*/
-.board {
+}
+*/ .board {
   display: flex;
   gap: 20px;
   padding: 20px;

@@ -1,52 +1,44 @@
 {
   "tasks": [
     {
-      "id": "1769680815049",
-      "title": "Elemental",
-      "description": "Form elements do not have associated labels\nThese are opportunities to improve the semantics of the controls in your application.",
-      "deadline": "2026-01-03",
-      "status": "done",
-      "priority": "low"
-    },
-    {
       "id": "1769680887872",
       "title": "Best practices",
       "description": "One main landmark helps screen reader users navigate a web page. Learn more about landmarks.",
       "deadline": "2026-01-30",
-      "status": "in-progress",
+      "status": "done",
       "priority": "medium"
-    },
-    {
-      "id": "1769779373839",
-      "title": "yuyu completing tailwind",
-      "description": "hhii",
-      "deadline": "0009-08-07",
-      "status": "todo",
-      "priority": "high"
     },
     {
       "id": "1769940108379",
       "title": "working on the figma design",
-      "description": "following specifications",
+      "description": "following specifications of the tion edge micro edge notepad blah blah blah",
       "deadline": "2026-02-03",
-      "status": "in-progress",
-      "priority": "high"
+      "status": "todo",
+      "priority": "Low"
     },
     {
-      "id": "1770622003933",
-      "title": "Redesigning the Dashboard",
-      "description": "reference to figma",
-      "deadline": "2026-02-10",
-      "priority": "Low",
-      "status": "done"
-    },
-    {
-      "id": "1770632669942",
-      "title": "gggggggg",
-      "description": "eeeeeeeee",
+      "id": "1770701036198",
+      "title": "fsdaefer",
+      "description": "dfasfs ggggg hhh rrr eeeeeeee 3333333w w",
       "deadline": "2026-02-12",
       "priority": "Medium",
-      "status": "todo"
+      "status": "in-progress"
+    },
+    {
+      "id": "1770701054446",
+      "title": "ererere",
+      "description": "rere",
+      "deadline": "2026-02-13",
+      "priority": "Low",
+      "status": "in-progress"
+    },
+    {
+      "id": "1770727783005",
+      "title": "efeef",
+      "description": "ddd fff eee hhh iii jjj kkk",
+      "deadline": "2026-02-12",
+      "priority": "Low",
+      "status": "done"
     }
   ],
   "users": [
@@ -56,9 +48,9 @@
       "email": "abc@gmail.com",
       "password": "123456",
       "fullname": "John Doe",
-      "phone": "4544454555",
+      "phone": "cvbnm,kkmk",
       "gender": "Male",
-      "dob": "",
+      "dob": "6666-05-04",
       "address": "Chandni Chowk",
       "zipCode": "",
       "state": "Karnataka"
@@ -82,6 +74,13 @@
       "userName": "R2D2",
       "email": "starwars@gmail.com",
       "password": "123456",
+      "phone": "2323232323"
+    },
+    {
+      "id": "2",
+      "userName": "rrere",
+      "email": "divya@gmail.com",
+      "password": "12Hh345678",
       "phone": "2323232323"
     },
     {

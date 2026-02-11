@@ -2,8 +2,13 @@
   position: relative;
   width: 260px;
   max-width: 260px;
-  background: #ffffff;
-  border: 2px solid #5b3e31;
+  background: radial-gradient(
+    circle at top,
+    #461446 0%,
+    #2c063f 66%,
+    #a419a7 100%
+  );
+  border: 2px solid #73167596;
   border-radius: 16px;
   padding: 16px;
   margin: 12px;
@@ -12,25 +17,28 @@
   background-color: beige;
 }
 
-.delete-btn {
+/* .delete-btn {
   position: absolute;
   top: 8px;
   right: 8px;
-}
+} */
 
-.task-header h4 {
+/* .task-header h4 {
   margin: 0;
   font-size: 18px;
-}
+} */
 
 .task-level {
   font-size: 12px;
-  color: gray;
+  color: rgb(219, 224, 178);
 }
 
 .task-desc {
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 12px;
+  text-align: left;
+  justify-content: flex-start;
+  color: white;
 }
 
 .task-actions {

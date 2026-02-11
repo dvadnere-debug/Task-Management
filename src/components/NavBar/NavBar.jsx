@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { useTheme } from "../../context/ThemeContext.jsx";
 import LoginModal from "../Login/component";
 import SignUpModal from "../Signup/component/index.jsx";
+
 import { Toaster } from "react-hot-toast";
 
 export default function NavBar() {
@@ -11,16 +12,37 @@ export default function NavBar() {
    const [openLogin, setOpenLogin] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
 
+  const dialogRef=useRef(null);
+  const openLogoutDialog=()=> {
+    dialogRef.current.showModal();
+  };
+  const closeLogoutDialog=()=>{
+    dialogRef.current.close();
+  }
+
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("token");
+const handleLogout =()=>{
+localStorage.removeItem("token");
+closeLogoutDialog();
+navigate("/");
+};
 
-  const logout = () => {
-    setTimeout(()=> {alert("Are you sure you want to log out?");
-      localStorage.removeItem("token");
-    navigate("/");
-    },2000);
+  // const logout = () => {
+  //   setTimeout(()=>{
+  //     const confirmLogout = window.confirm("Are you sure you want to log out?");
+  //     if(confirmLogout){
+  //     localStorage.removeItem("token");
+  //     navigate("/");
+  //   }},5000);
     
-  };
+  //   }
+    // setTimeout(()=> {alert("Are you sure you want to log out?");
+    //   localStorage.removeItem("token");
+    // navigate("/");
+    // },2000);
+    
+ 
 
   return (
     <nav className={`navbar ${theme}`}>
@@ -32,8 +54,8 @@ export default function NavBar() {
       </div>
 
       <ul className="navbar-center">
-        <li>
-          <Link to="/">Home</Link>
+        <li >
+          <Link to="/" >Home</Link>
         </li>
         {isLoggedIn && (<>
           <li>
@@ -83,7 +105,7 @@ export default function NavBar() {
           </>
         ) : (
           
-          <button className="nav-btn logout" onClick={logout}>
+          <button className="nav-btn logout" onClick={openLogoutDialog}>
             Logout
           </button>
         )}
@@ -102,6 +124,54 @@ export default function NavBar() {
         )}
       </div> */}
       {/* </div> */}
+    <dialog
+  ref={dialogRef}
+  className="
+  fixed inset 
+  m-auto
+    rounded-lg
+    p-6
+    w-100
+    bg-white
+    text-black
+    shadow-xl
+    backdrop:bg-black/90
+  "
+>
+  <p className="text-lg font-medium mb-6">
+    Are you sure you want to logout?
+  </p>
+
+  <div className="flex justify-end gap-4">
+    <button
+      onClick={closeLogoutDialog}
+      className="
+        px-4 py-2
+        border
+        rounded-md
+        text-sm
+        hover:bg-gray-100
+      "
+    >
+      Cancel
+    </button>
+
+    <button
+      onClick={handleLogout}
+      className="
+        px-4 py-2
+        bg-btnColor
+        text-white
+        rounded-md
+        text-sm
+        hover:bg-red-600
+      "
+    >
+      Logout
+    </button>
+  </div>
+</dialog>
+
     </nav>
   );
 }

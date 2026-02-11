@@ -12,10 +12,11 @@ export default function SearchBar({ text, setText }) {
         value={text}
         placeholder="Enter to search"
         onChange={(e) => setText(e.target.value.toLowerCase())}
+        className="border-white border-1"
         // onClick={searchText}
         style={{
           padding: "8px",
-          border: "2px solid black",
+        borderWidth: "2px",
           borderRadius: "10px",
 
           width: "300px",

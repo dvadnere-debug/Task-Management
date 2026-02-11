@@ -1,7 +1,7 @@
 import InputField from "../Input";
 import SelectField from "../Select";
 export default function FormRenderer({ config, field, errors }) {
-  const { label, type, placeholder, showForgotPassword, inputType, options } = config;
+  const { label, type, placeholder, showForgotPassword, inputType, options, showPasswordToggle } = config;
   if(type === "select"){
     return(
       <SelectField
@@ -22,6 +22,7 @@ export default function FormRenderer({ config, field, errors }) {
         errors={errors}
         inputType={inputType}
         field={field}
+        showPasswordToggle={showPasswordToggle}
       />
 
       {showForgotPassword && (

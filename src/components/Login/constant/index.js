@@ -25,5 +25,6 @@ export const LOGIN_FORM_CONTROLLER = [
       },
     },
     showForgotPassword: true,
+    showPasswordToggle:true
   },
 ];

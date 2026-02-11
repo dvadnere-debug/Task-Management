@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { registerUser } from "../../../services/authService";
 import { SIGNUP_FORM_CONTROLLER } from "../constant";
+import toast from "react-hot-toast";
 
 export default function useSignup(onClose) {
   const {
@@ -24,7 +25,9 @@ export default function useSignup(onClose) {
       
       reset();
       onClose?.();
+      toast.success("Signup successful!",{duration:3000})
     } catch (error) {
+      toast.error("Signup Failed",{duration:6000})
       alert(error.message);
     }
   };

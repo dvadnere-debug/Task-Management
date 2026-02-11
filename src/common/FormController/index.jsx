@@ -1,5 +1,5 @@
 import { Controller } from "react-hook-form";
-import FormRenderer from "../FormRender";
+import FormRenderer from "../FormRenderer";
 
 export default function FormController({ config, control, errors }) {
   console.log("config", config);

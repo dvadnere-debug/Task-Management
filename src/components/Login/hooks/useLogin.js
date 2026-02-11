@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../../services/authService.js";
 import { useAuth } from "../../../context/AuthContext";
 import { LOGIN_FORM_CONTROLLER } from "../constant";
+import toast, {Toaster} from "react-hot-toast"
 
 export default function useLogin(onClose) {
   const {
@@ -27,8 +28,10 @@ export default function useLogin(onClose) {
 
       onClose?.();
       navigate("/dashboard");
+      toast.success("Login Successful!",{duration:2000})
     } catch (error) {
-      alert("Invalid email or password");
+      toast.error("Invalid email or password",{duration: 5000})
+      // alert("Invalid email or password");
       console.log(error.message);
     }
   };

@@ -4,7 +4,7 @@ function TaskColumn({
   title,
   tasks,
   selectedTask,
-onSelectTask =() =>{},
+onToggleTask =() =>{},
   onMoveTask = () => {},
   onDeleteTask = () => {},
   onEditTask,
@@ -22,8 +22,8 @@ onSelectTask =() =>{},
     //     minHeight: "200px",
     //   }}
     // >
-    <div className="flex flex-col items-center w-full max-w-87.5 min-w-70">
-      <h1
+    <div className=" flex flex-col items-center w-full max-w-87.5 min-w-70">
+      {/* <h1
         style={{
           textAlign: "center",
           marginBottom: "8px",
@@ -32,11 +32,11 @@ onSelectTask =() =>{},
         }}
       >
         {title}
-      </h1>
+      </h1> */}
 
       {tasks.length === 0 && <p>No tasks</p>}
 
-      <div className="flex flex-col gap-6 w-full items-center">
+      <div className="  flex flex-col gap-6 w-full items-center">
         {tasks.map((task) => (
           <TaskCard
             key={task.id}
@@ -44,8 +44,9 @@ onSelectTask =() =>{},
             onMoveTask={onMoveTask}
             onDeleteTask={onDeleteTask}
             onEditTask={onEditTask}
- isSelected={selectedTask === task.id}
-    onSelect={() => onSelectTask(task.id)}   />
+ isSelected={selectedTask.includes(task.id)}
+ 
+    onToggle={()=> onToggleTask(task.id)} />
         ))}
       </div>
 
