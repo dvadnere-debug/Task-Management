@@ -1,10 +1,5 @@
 import { useState } from "react";
-// import {
-//   getTasks,
-//   addTask,
-//   updateTask,
-//   deleteTask,
-// } from "../../services/api.js";
+
 import TaskColumn from "./TaskColumn.jsx";
 import AddTaskForm from "./AddTaskForm/component";
 import SearchBar from "../../SearchBar.jsx";
@@ -19,14 +14,25 @@ function TaskBoard() {
 
   const [text, setText] = useState("");
   const [edit, setEdit] = useState(null);
-  const {
+  // const {
+  //   tasks,
+  //   isloading,
+  //   createTask,
+  //   moveTask,
+  //   removeTask,
+  
+  // } = useTasks();
+  
+
+const {
     tasks,
-    loading,
-    handleAddTask,
-    moveTask,
-    deletingTask,
-    handleUpdateTask,
+    isLoading,
+    addTask, updateTask, deleteTask
+  
   } = useTasks();
+  
+
+
   const debouncedText = useDebounce(text, 1000);
   const searchText = debouncedText.length >= 3 ? debouncedText : "";
 
@@ -51,63 +57,19 @@ function TaskBoard() {
 
   function onAddTask(newTask) {
     if (edit) {
-      handleUpdateTask(newTask);
+      updateTask({id: newTask.id, ...newTask});
     } else {
-      handleAddTask(newTask);
+      addTask(newTask);
     }
 
     setEdit(null);
     setShowForm(false);
   }
 
-  // console.log(tasks.filter((task) => task.title.includes("Best")));
-  // useEffect(() => {
-  //   getTasks()
-  //     .then((response) => {
-  //       setTasks(response.data);
-  //       setLoading(false);
-  //     })
-  //     .catch(() => {
-  //       console.error("Failed to load tasks");
-  //       setLoading(false);
-  //     });
-  // }, []);
+  
 
-  // function handleAddTask(newTask) {
-  //   addTask(newTask).then((response) => {
-  //     setTasks([...tasks, response.data]);
-  //     setShowForm(false);
-  //   });
-  // }
-
-  // const deletingTask = async (id) => {
-  //   try {
-  //     await deleteTask(id);
-
-  //     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
-  //   } catch (error) {
-  //     console.error("Failed to delete task", error);
-  //   }
-  // };
-
-  // function moveTask(taskId, newStatus) {
-  //   let updatedTask = null;
-
-  //   const updatedTasks = tasks.map((task) => {
-  //     if (Number(task.id) === Number(taskId)) {
-  //       updatedTask = { ...task, status: newStatus };
-  //       return updatedTask;
-  //     }
-  //     return task;
-  //   });
-
-  //   updateTask(taskId, updatedTask).then(() => {
-  //     setTasks(updatedTasks);
-  //   });
-  // }
-
-  if (loading) {
-    ///loading states
+  if (isLoading) {
+    //loading states
     return (
       <h1>
         <p>wait.. Loading ur tasks.</p>
@@ -176,8 +138,8 @@ function TaskBoard() {
                 task.title.toLowerCase().includes(searchText),
             )}
             // onAddClick={() => setShowForm(true)}
-            onMoveTask={moveTask}
-            onDeleteTask={deletingTask}
+            onMoveTask={updateTask}
+            onDeleteTask={deleteTask}
             onEditTask={onEditTask}
             selectedTask={selectedTask}
             onToggleTask={toggleTaskSelection}
@@ -195,8 +157,8 @@ function TaskBoard() {
                 task.title.toLowerCase().includes(searchText),
             )}
             // onAddClick={() => setShowForm(true)}
-            onMoveTask={moveTask}
-            onDeleteTask={deletingTask}
+            onMoveTask={updateTask}
+            onDeleteTask={deleteTask}
             onEditTask={onEditTask}
             selectedTask={selectedTask}
             onToggleTask={toggleTaskSelection}
@@ -214,8 +176,8 @@ function TaskBoard() {
                 task.title.toLowerCase().includes(searchText),
             )}
             // onAddClick={() => setShowForm(true)}
-            onMoveTask={moveTask}
-            onDeleteTask={deletingTask}
+            onMoveTask={updateTask}
+            onDeleteTask={deleteTask}
             onEditTask={onEditTask}
             selectedTask={selectedTask}
             onToggleTask={toggleTaskSelection}

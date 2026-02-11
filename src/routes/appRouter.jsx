@@ -1,13 +1,14 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar.jsx";
-import TaskBoard from "../components/features/dashboard/TaskBoard.jsx";
+// import TaskBoard from "../components/features/dashboard/TaskBoard.jsx";
 import ProtectedRoute from "./protectedRoute.jsx";
 import { Memoizedcomponent } from "../context/counter.jsx";
 import Home from "../components/features/HeroSection/Home.jsx";
 import UserProfile from "../components/UserProfile/component/index.jsx";
 // import PswdGen from "../features/Login/PswdGen.jsx";
 import { ThemeProvider } from "../context/ThemeContext.jsx";
+import TaskBoard from "../components/features/dashboard/TaskBoard.jsx";
 const appRouter = createBrowserRouter([
   {
     path: "/",
