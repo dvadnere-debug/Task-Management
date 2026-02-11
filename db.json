@@ -5,7 +5,7 @@
       "title": "Best practices",
       "description": "One main landmark helps screen reader users navigate a web page. Learn more about landmarks.",
       "deadline": "2026-01-30",
-      "status": "done",
+      "status": "todo",
       "priority": "medium"
     },
     {
@@ -13,23 +13,15 @@
       "title": "working on the figma design",
       "description": "following specifications of the tion edge micro edge notepad blah blah blah",
       "deadline": "2026-02-03",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "Low"
     },
     {
-      "id": "1770701054446",
-      "title": "ererere",
-      "description": "rere",
-      "deadline": "2026-02-13",
-      "priority": "Low",
-      "status": "in-progress"
-    },
-    {
-      "id": "1770727783005",
-      "title": "efeef",
-      "description": "ddd fff eee hhh iii jjj kkk",
-      "deadline": "2026-02-12",
-      "priority": "Low",
+      "id": "1770834201964",
+      "title": "beautifying the ui",
+      "description": "i must make the ui of dashboard astounding",
+      "deadline": "2026-02-14",
+      "priority": "High",
       "status": "done"
     }
   ],

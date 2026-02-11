@@ -120,8 +120,9 @@ export default function AddTaskForm({ isOpen, onClose, onAddTask, editTask }) {
   return (
     <Modal
       isOpen={isOpen}
+
       onAddtask={onAddTask}
-      onClose={onClose}
+      onRequestClose={onClose}
       className="modal-popup"
     >
       <h3>{editTask ? "Edit Task" : "Add Task"}</h3>

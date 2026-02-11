@@ -35,22 +35,21 @@ export default function TaskCard({
         <div className="task-level text-left">
           Status: {task.status}<br/>Priority: {task.priority}<br/>Due: {task.deadline}
         </div>
-        {/* <small >Due: {task.deadline}</small> */}
       </div>
 
       <p className="task-desc">{task.description}</p>
 
       <div className="task-actions">
         {task.status !== "todo" && (
-          <button onClick={() => onMoveTask(task.id, "todo")}>Todo</button>
+          <button onClick={() => onMoveTask({id:task.id, status:"todo"})}>Todo</button>
         )}
         {task.status !== "in-progress" && (
-          <button onClick={() => onMoveTask(task.id, "in-progress")}>
+          <button onClick={() => onMoveTask({id:task.id, status: "in-progress"})}>
             In Progress
           </button>
         )}
         {task.status !== "done" && (
-          <button onClick={() => onMoveTask(task.id, "done")}>Done</button>
+          <button onClick={() => onMoveTask({id:task.id, status:"done"})}>Done</button>
         )}
       </div>
 
@@ -72,7 +71,7 @@ export default function TaskCard({
 
   <button
     className="cursor-pointer border-white  rounded-[5px] bg-backGroundColor w-10 h-10 flex justify-center items-center "
-    onClick={() => onMoveTask(task.id, "in-progress")}
+    onClick={() => onMoveTask({id:task.id, status:"in-progress"})}
   >
     <img src="/move.png" alt="move" className="w-5 h-5" />
   </button>

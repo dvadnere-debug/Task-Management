@@ -7,31 +7,15 @@ import AddTaskButton from "../../AddTaskButton.jsx";
 import { useTasks } from "../../../hooks/useTasks.jsx";
 import useDebounce from "../../../hooks/useDebounce.jsx";
 function TaskBoard() {
-  //const [tasks, setTasks] = useState([]);
-  //const [loading, setLoading] = useState(true);
+
   const [showForm, setShowForm] = useState(false);
   const [selectedTask, setSelectedTask] = useState([]);
 
   const [text, setText] = useState("");
   const [edit, setEdit] = useState(null);
-  // const {
-  //   tasks,
-  //   isloading,
-  //   createTask,
-  //   moveTask,
-  //   removeTask,
-  
-  // } = useTasks();
-  
 
-const {
-    tasks,
-    isLoading,
-    addTask, updateTask, deleteTask
-  
-  } = useTasks();
-  
 
+  const { tasks, isLoading, addTask, updateTask, deleteTask } = useTasks();
 
   const debouncedText = useDebounce(text, 1000);
   const searchText = debouncedText.length >= 3 ? debouncedText : "";
@@ -57,7 +41,7 @@ const {
 
   function onAddTask(newTask) {
     if (edit) {
-      updateTask({id: newTask.id, ...newTask});
+      updateTask({ id: newTask.id, ...newTask });
     } else {
       addTask(newTask);
     }
@@ -65,8 +49,6 @@ const {
     setEdit(null);
     setShowForm(false);
   }
-
-  
 
   if (isLoading) {
     //loading states
@@ -79,7 +61,6 @@ const {
 
   return (
     <div className="bg-backGroundColor pt-10">
-      {/* <header>Kanban Board</header> */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8 px-4">
         <div className="w-full md:w-auto text-textColor">
           <SearchBar text={text} setText={setText} />
@@ -89,26 +70,7 @@ const {
         </div>
       </div>
 
-      {/* <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "16px",
-          marginBottom: "30px",
-        }}
-      >
-        <SearchBar text={text} setText={setText} />
-        <AddTaskButton onAddClick={() => setShowForm(true)} />
-      </div> */}
-      {/* <SearchBar text={text} setText={setText} />
-      <AddTaskButton
-        onAddClick={() => {
-          setShowForm(true);
-        }}
-      /> */}
-
-      {/* Show form only when needed */}
+     
       {showForm && (
         <AddTaskForm
           isOpen={showForm}
@@ -121,13 +83,10 @@ const {
         />
       )}
 
-      {/* <div
-        className="board"
-        style={{ display: "flex", gap: "20px", justifyContent: "center" }}
-      > */}
+      
       <div className="board grid grid-cols-1 gap-8 lg:grid-cols-3 px-6 md:px-12 w-full max-w-300 mx-auto justify-items-center">
-        <div className="bg-colColr rounded-[20px]">
-          <div className=" bg-colTitle w-77.25 h-16.25 rounded-[20px] text-textColor p-4  border-gradient m-6 font-medium flex items-center justify-center">
+        <div className="bg-colColr rounded-[20px] px-9 py-8">
+          <div className=" bg-colTitle w-full h-16.25 rounded-[20px] text-textColor p-4  border-gradient font-medium flex items-center justify-center">
             To Do
           </div>
           <TaskColumn
@@ -145,8 +104,8 @@ const {
             onToggleTask={toggleTaskSelection}
           />
         </div>
-        <div className="bg-colColr rounded-[20px]">
-          <div className=" flex flex-wrap items-center justify-center bg-colTitle w-77.25 h-16.25 rounded-3xl text-textColor p-4  border-gradient mr-6 ml-6 m-6 font-medium">
+        <div className="bg-colColr rounded-[20px] px-8 py-9">
+          <div className=" bg-colTitle w-full h-16.25 rounded-[20px] text-textColor p-4  border-gradient font-medium flex items-center justify-center">
             In Progress
           </div>
           <TaskColumn
@@ -164,8 +123,8 @@ const {
             onToggleTask={toggleTaskSelection}
           />
         </div>
-        <div className="bg-colColr rounded-[20px]">
-          <div className=" bg-colTitle w-77.25 h-16.25 rounded-[20px] text-textColor p-4  border-gradient m-6 font-medium flex items-center justify-center">
+        <div className="bg-colColr rounded-[20px] px-8 py-9">
+          <div className=" bg-colTitle w-full h-16.25 rounded-[20px] text-textColor p-4  border-gradient font-medium flex items-center justify-center">
             Done
           </div>
           <TaskColumn

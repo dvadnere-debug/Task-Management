@@ -13,6 +13,7 @@ function App() {
     <><Toaster />
     <AuthProvider>
       <ThemeProvider>
+        <Toaster position="top-center" />
         <RouterProvider router={appRouter} />
         {/* <Form /> */}
         {/* <TaskBoard /> */}
