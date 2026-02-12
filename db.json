@@ -9,19 +9,35 @@
       "priority": "medium"
     },
     {
-      "id": "1769940108379",
-      "title": "working on the figma design",
-      "description": "following specifications of the tion edge micro edge notepad blah blah blah",
-      "deadline": "2026-02-03",
-      "status": "in-progress",
-      "priority": "Low"
-    },
-    {
       "id": "1770834201964",
       "title": "beautifying the ui",
       "description": "i must make the ui of dashboard astounding",
       "deadline": "2026-02-14",
       "priority": "High",
+      "status": "done"
+    },
+    {
+      "id": "1770835806896",
+      "title": "Adding Drag and Drop",
+      "description": "i must add drag and drop for cards",
+      "deadline": "2026-02-13",
+      "priority": "Low",
+      "status": "todo"
+    },
+    {
+      "id": "1770836012269",
+      "title": "Addition of undo button",
+      "description": "a user should get a notification for undoing the delete operation",
+      "deadline": "2026-02-13",
+      "priority": "Low",
+      "status": "in-progress"
+    },
+    {
+      "id": "1770836053328",
+      "title": "This is a task",
+      "description": "blah blah blah",
+      "deadline": "2026-02-13",
+      "priority": "Medium",
       "status": "done"
     }
   ],
