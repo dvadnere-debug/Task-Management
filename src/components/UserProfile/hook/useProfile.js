@@ -1,7 +1,8 @@
 import { PROFILE_FORM_CONTROLLER } from "../constant";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useAuth } from "../../../context/AuthContext";
+// import { useAuth } from "../../../context/AuthContext";
+import {useAuth} from "../../../store/Reducer/index.jsx"
 import { updateUser } from "../../../services/userService";
 
 export default function useProfile() {

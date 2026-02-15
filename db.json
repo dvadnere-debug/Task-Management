@@ -14,23 +14,15 @@
       "description": "i must make the ui of dashboard astounding",
       "deadline": "2026-02-14",
       "priority": "High",
-      "status": "done"
+      "status": "todo"
     },
     {
-      "id": "1770835806896",
+      "id": "1770835806886",
       "title": "Adding Drag and Drop",
       "description": "i must add drag and drop for cards",
       "deadline": "2026-02-13",
       "priority": "Low",
-      "status": "todo"
-    },
-    {
-      "id": "1770836012269",
-      "title": "Addition of undo button",
-      "description": "a user should get a notification for undoing the delete operation",
-      "deadline": "2026-02-13",
-      "priority": "Low",
-      "status": "in-progress"
+      "status": "done"
     },
     {
       "id": "1770836053328",
@@ -38,7 +30,15 @@
       "description": "blah blah blah",
       "deadline": "2026-02-13",
       "priority": "Medium",
-      "status": "done"
+      "status": "todo"
+    },
+    {
+      "id": "1771179818389",
+      "title": "deploying on netlify",
+      "description": "yes",
+      "deadline": "2026-02-16",
+      "priority": "Low",
+      "status": "in-progress"
     }
   ],
   "users": [

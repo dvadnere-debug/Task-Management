@@ -1,5 +1,5 @@
 import axios from "axios";
-const API = "http://localhost:3001/users";
+const API = "http://localhost:3000/users";
 
 export const registerUser = async (data) => {
   console.log("user's data is available", data);

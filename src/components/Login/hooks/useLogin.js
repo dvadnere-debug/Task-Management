@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../../services/authService.js";
-import { useAuth } from "../../../context/AuthContext";
+// import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../store/Reducer/index.jsx";
 import { LOGIN_FORM_CONTROLLER } from "../constant";
 import toast, {Toaster} from "react-hot-toast"
 
@@ -18,13 +19,23 @@ export default function useLogin(onClose) {
   });
 
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { dispatch } = useAuth();
 
   const onSubmit = async (data) => {
     try {
       const user = await loginUser(data.email, data.password);
       localStorage.setItem("token", user.password);
-      login(user);
+
+
+      dispatch({
+        type:"LOGIN",
+        payload:{
+          user: user,
+          token: user.password,
+        }
+      });
+
+      // login(user);
 
       onClose?.();
       navigate("/dashboard");

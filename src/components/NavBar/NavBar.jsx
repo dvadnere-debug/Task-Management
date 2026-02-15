@@ -4,177 +4,123 @@ import "./NavBar.css";
 import { useTheme } from "../../context/ThemeContext.jsx";
 import LoginModal from "../Login/component";
 import SignUpModal from "../Signup/component/index.jsx";
-
-import { Toaster } from "react-hot-toast";
+import { useAuth } from "../../store/Reducer/index.jsx";
 
 export default function NavBar() {
   const { theme, toggleTheme } = useTheme();
-   const [openLogin, setOpenLogin] = useState(false);
+
+  const [openLogin, setOpenLogin] = useState(false);
+
+  const { state, dispatch } = useAuth();
   const [openSignup, setOpenSignup] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const dialogRef=useRef(null);
-  const openLogoutDialog=()=> {
-    dialogRef.current.showModal();
-  };
-  const closeLogoutDialog=()=>{
-    dialogRef.current.close();
-  }
-
+  const dialogRef = useRef(null);
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem("token");
-const handleLogout =()=>{
-localStorage.removeItem("token");
-closeLogoutDialog();
-navigate("/");
-};
 
-  // const logout = () => {
-  //   setTimeout(()=>{
-  //     const confirmLogout = window.confirm("Are you sure you want to log out?");
-  //     if(confirmLogout){
-  //     localStorage.removeItem("token");
-  //     navigate("/");
-  //   }},5000);
-    
-  //   }
-    // setTimeout(()=> {alert("Are you sure you want to log out?");
-    //   localStorage.removeItem("token");
-    // navigate("/");
-    // },2000);
-    
- 
+  // const isLoggedIn = localStorage.getItem("token");
+
+const isLoggedIn = state.token;
+  const handleLogout = () => {
+    dispatch({ type:"LOGOUT"});
+    dialogRef.current.close();
+    navigate("/");
+  };
 
   return (
     <nav className={`navbar ${theme}`}>
-      {/* <div className={theme === "light" ? "light-mode" : "light-mode"}> */}
+      {/* LEFT */}
       <div className="navbar-left">
-        <Link to="/" className="logo">
-          TaskFlowLite
-        </Link>
+        <Link to="/" className="logo">TaskFlowLite</Link>
       </div>
 
       <ul className="navbar-center">
-        <li >
-          <Link to="/" >Home</Link>
-        </li>
-        {isLoggedIn && (<>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li><Link to="/profile">Profile</Link></li></>
+        <li><Link to="/">Home</Link></li>
+        {isLoggedIn && (
+          <>
+            <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
+          </>
         )}
       </ul>
 
-
-          
-           <LoginModal
-                    isLoginOpen={openLogin}
-                    onClose={() => setOpenLogin(false)}
-                    letsOpenSignup={() => {
-                      setOpenSignup(true);
-                      setOpenLogin(false);
-                    }}
-                  />
-                  <SignUpModal
-          isSignupOpen={openSignup}
-          onClose={() => setOpenSignup(false)}
-          letsOpenLogin={() => {
-            setOpenLogin(true);
-            setOpenSignup(false);
-          }}
-        />
-
-        <div className="navbar-right">
+      <div className="navbar-right">
         <button className="theme-btn" onClick={toggleTheme}>Theme</button>
-        
+
         {!isLoggedIn ? (
           <>
-           
-           <button
-            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 font-medium text-neutral-600 transition-all duration-100 [box-shadow:5px_5px_rgb(82_82_82)] active:translate-x-0.75 active:translate-y-0.75 active:[box-shadow:0px_0px_rgb(82_82_82)]"
-            onClick={() => setOpenLogin(true)}
-          >
-            Login
-          </button>
-           <button
-            className="margin group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 font-medium text-neutral-600 transition-all duration-100 [box-shadow:5px_5px_rgb(82_82_82)] active:translate-x-0.75 active:translate-y-0.75 active:[box-shadow:0px_0px_rgb(82_82_82)]"
-            onClick={() => setOpenSignup(true)}
-          >
-            SignUP
-          </button>
+            <button onClick={() => setOpenLogin(true)} className="nav-btn">
+              Login
+            </button>
+            <button onClick={() => setOpenSignup(true)} className="nav-btn">
+              SignUp
+            </button>
           </>
         ) : (
-          
-          <button className="nav-btn logout" onClick={openLogoutDialog}>
+          <button
+            className="nav-btn logout"
+            onClick={() => dialogRef.current.showModal()}
+          >
             Logout
           </button>
         )}
       </div>
 
-      {/* <div className="navbar-right">
-        <button className="theme-btn" onClick={toggleTheme}>Theme</button>
-        {!isLoggedIn ? (
-          <Link to="/login" className="nav-btn">
-            Login
-          </Link>
-        ) : (
-          <button className="nav-btn logout" onClick={logout}>
-            Logout
-          </button>
-        )}
-      </div> */}
-      {/* </div> */}
-    <dialog
-  ref={dialogRef}
-  className="
-  fixed inset 
-  m-auto
-    rounded-lg
-    p-6
-    w-100
-    bg-white
-    text-black
-    shadow-xl
-    backdrop:bg-black/90
-  "
->
-  <p className="text-lg font-medium mb-6">
-    Are you sure you want to logout?
-  </p>
+      <button
+        className="hamburger-btn"
+        onClick={() => setMenuOpen(prev => !prev)}
+      >
+        ☰
+      </button>
 
-  <div className="flex justify-end gap-4">
-    <button
-      onClick={closeLogoutDialog}
-      className="
-        px-4 py-2
-        border
-        rounded-md
-        text-sm
-        hover:bg-gray-100
-      "
-    >
-      Cancel
-    </button>
+      {menuOpen && (
+        <div className="mobile-menu">
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          {isLoggedIn && (
+            <>
+              <Link to="/dashboard" onClick={() => setMenuOpen(false)}>Dashboard</Link>
+              <Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link>
+              <button
+                className="nav-btn logout"
+                onClick={() => {
+                  setMenuOpen(false);
+                  dialogRef.current.showModal();
+                }}
+              >
+                Logout
+              </button>
+            </>
+          )}
+        </div>
+      )}
 
-    <button
-      onClick={handleLogout}
-      className="
-        px-4 py-2
-        bg-btnColor
-        text-white
-        rounded-md
-        text-sm
-        hover:bg-red-600
-      "
-    >
-      Logout
-    </button>
-  </div>
-</dialog>
+      {/* MODALS */}
+      <LoginModal
+        isLoginOpen={openLogin}
+        onClose={() => setOpenLogin(false)}
+        letsOpenSignup={() => {
+          setOpenSignup(true);
+          setOpenLogin(false);
+        }}
+      />
 
+      <SignUpModal
+        isSignupOpen={openSignup}
+        onClose={() => setOpenSignup(false)}
+        letsOpenLogin={() => {
+          setOpenLogin(true);
+          setOpenSignup(false);
+        }}
+      />
+
+      {/* LOGOUT DIALOG */}
+      <dialog ref={dialogRef} className="logout-dialog">
+        <p>Are you sure you want to logout?</p>
+        <div className="dialog-actions">
+          <button onClick={() => dialogRef.current.close()}>Cancel</button>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      </dialog>
     </nav>
   );
 }
-
-// export const MemoizedComponent = memo(NavBar);
-

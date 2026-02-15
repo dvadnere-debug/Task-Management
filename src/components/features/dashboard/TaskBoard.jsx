@@ -65,7 +65,7 @@ function TaskBoard() {
         <div className="w-full md:w-auto text-textColor">
           <SearchBar text={text} setText={setText} />
         </div>
-        <div className="w-40 md:w-auto flex justify-center border rounded-[10px] text-textColor">
+        <div className=" text-white border rounded-[0.625rem] p-2 mb-[1.25rem] ">
           <AddTaskButton onAddClick={() => setShowForm(true)} />
         </div>
       </div>
@@ -85,7 +85,7 @@ function TaskBoard() {
 
       
       <div className="board grid grid-cols-1 gap-8 lg:grid-cols-3 px-6 md:px-12 w-full max-w-300 mx-auto justify-items-center">
-        <div className="bg-colColr rounded-[20px] px-9 py-8">
+        <div className="bg-colColr rounded-[20px] px-8 py-9 mb-5">
           <div className=" bg-colTitle w-full h-16.25 rounded-[20px] text-textColor p-4  border-gradient font-medium flex items-center justify-center">
             To Do
           </div>
@@ -104,8 +104,8 @@ function TaskBoard() {
             onToggleTask={toggleTaskSelection}
           />
         </div>
-        <div className="bg-colColr rounded-[20px] px-8 py-9">
-          <div className=" bg-colTitle w-full h-16.25 rounded-[20px] text-textColor p-4  border-gradient font-medium flex items-center justify-center">
+        <div className="bg-colColr rounded-[20px] px-8 py-9 mb-5">
+          <div className="  bg-colTitle w-full h-16.25 rounded-[20px] text-textColor p-4  border-gradient font-medium flex items-center justify-center">
             In Progress
           </div>
           <TaskColumn
@@ -123,7 +123,7 @@ function TaskBoard() {
             onToggleTask={toggleTaskSelection}
           />
         </div>
-        <div className="bg-colColr rounded-[20px] px-8 py-9">
+        <div className="bg-colColr rounded-[20px] px-8 py-9 mb-5">
           <div className=" bg-colTitle w-full h-16.25 rounded-[20px] text-textColor p-4  border-gradient font-medium flex items-center justify-center">
             Done
           </div>

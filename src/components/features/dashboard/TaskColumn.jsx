@@ -1,5 +1,5 @@
 import TaskCard from "./TaskCard";
-
+import React from "react";
 function TaskColumn({
   title,
   tasks,
@@ -11,12 +11,12 @@ onToggleTask =() =>{},
 }) {
   return (
   
-    <div className=" flex flex-col items-center w-full max-w-87.5 min-w-70">
+    <div className=" flex flex-col items-center w-full max-w-88 min-w-70">
     
 
       {tasks.length === 0 && <p>No tasks</p>}
 
-      <div className="  flex flex-col pt-4 gap-6 w-full items-center">
+      <div className="  flex flex-col pt-4  gap-6 w-full items-center">
         {tasks.map((task) => (
           <TaskCard
             key={task.id}
@@ -36,4 +36,4 @@ onToggleTask =() =>{},
   );
 }
 
-export default TaskColumn;
+export default React.memo(TaskColumn);

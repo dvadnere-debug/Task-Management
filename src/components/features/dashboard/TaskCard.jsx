@@ -2,7 +2,7 @@ import React from "react";
 import "./TaskCard.css";
 import {useState} from "react";
 
-export default function TaskCard({
+function TaskCard({
   task,
   isSelected,
   onToggle,
@@ -155,3 +155,5 @@ export default function TaskCard({
     </div>
   );
 }
+
+export default React.memo(TaskCard);

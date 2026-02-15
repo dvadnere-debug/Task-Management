@@ -6,6 +6,7 @@ export default function FormController({ config, control, errors }) {
   return (
     <>
       {config.map((fieldConfig) => (
+        
         <Controller
           key={fieldConfig.name}
           name={fieldConfig.name}

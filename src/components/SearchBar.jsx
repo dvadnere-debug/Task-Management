@@ -1,4 +1,5 @@
-export default function SearchBar({ text, setText }) {
+import React from "react";
+function SearchBar({ text, setText }) {
   //   function searchText({text, setText}) {
   //     return tasks.filter((task) =>
   //       task.title.toLowerCase().includes(`$setText`),
@@ -12,7 +13,7 @@ export default function SearchBar({ text, setText }) {
         value={text}
         placeholder="Enter to search"
         onChange={(e) => setText(e.target.value.toLowerCase())}
-        className="border-white border-1"
+        className="border-white border"
         // onClick={searchText}
         style={{
           padding: "8px",
@@ -27,3 +28,4 @@ export default function SearchBar({ text, setText }) {
   );
 }
 //default props
+export default React.memo(SearchBar)
