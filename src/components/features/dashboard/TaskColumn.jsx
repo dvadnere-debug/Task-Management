@@ -1,7 +1,7 @@
 import TaskCard from "./TaskCard";
 import React from "react";
 function TaskColumn({
-  title,
+  // title,
   tasks,
   selectedTask,
 onToggleTask =() =>{},
